@@ -1,0 +1,73 @@
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class="panel bg_F8">
+	<!-- <image class='mine_banner' mode="widthFix" src='../../../../../images/bg.png'></image> -->
+	<view class="top_panel">
+		<view class="center_box flexRow">
+			<view class="flex_item left_box">
+				<view class="item_top">￥{{totalMoney}} <text class="money_style">元</text></view>
+				<view class="gray_text">累计交易{{total}}笔，累计交易额</view>
+			</view>
+			<view class="center_item flex_item">
+				<picker mode="date" fields="month" value="{{date}}" start="2016-01-01" bindchange="getDateTime">
+					<view class="selectDate">
+						<text class="font_14 color_666">{{years}}年{{months}}月</text>
+						<text class="triangle"></text>
+					</view>
+				</picker>
+			</view>
+		</view>
+	</view>
+
+	<view class="btn_group_panel">
+		<view class="btn_group">
+			<view class="btn_group_item {{active==='0'?'active':''}}" bindtap="hanldClick" data-index="0">员工业绩累计</view>
+			<view class="btn_group_item {{active==='1'?'active':''}}" bindtap="hanldClick" data-index="1">业绩发放记录</view>
+		</view>
+	</view>
+	<view class="table_panel" wx:if="{{active==='0'}}">
+		<view class="flexRow flex_top color_333">
+			<view class="flex_table_item flex_table_title"><text class="table_title">员工业绩报表</text></view>
+		</view>
+		<!-- 滑到底部加载 -->
+		<scroll-view style="height:calc(100% - 100rpx);" scroll-y bindscrolltolower='bindscrolltolower'>
+				<view class="load_more" wx:if='{{!items||items.length===0}}'>暂无数据</view>
+			<view wx:else >
+			<navigator url="../profitDetails/profitDetails?id={{item.id}}&name={{item['name']}}&date={{years+'-'+months}}&currentBid={{item['sep_organ_id']}}" class="flexRow flex_top" wx:for="{{items}}" wx:for-item="item" wx:key="index">
+				<view class="flex_table_item font_14 color_666">{{item['name']}}</view>
+				<view class="flex_table_item font_14 color_666">￥{{item.sep_value}}
+        	<image class="arrow_style" src="../../images/menuPage/arrow.png"></image>
+        </view>
+			</navigator>
+			<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+			</view>
+		</scroll-view>
+	</view>
+  <view class="table_panel" wx:else>
+  <view class="flex_table_ex">每月15号为上一个月利润结算发放日，请注意3个工作日内查收</view>
+  	<view class="flexRow flex_top color_333">
+			<view class="flex_table_item flex_table_title"><text class="table_title">发放记录</text></view>
+		</view>
+		<!-- 滑到底部加载 -->
+		<scroll-view style="height:calc(100% - 240rpx);" scroll-y bindscrolltolower='bindscrolltolower'>
+			<view class="load_more" wx:if='{{!recoverItems||recoverItems.length===0}}'>暂无数据</view>
+			<view wx:else >
+			<view class="flex_style" wx:for="{{recoverItems}}" wx:for-item="item" wx:key="index">
+				<view class="flexRow padding_b border_bottom">
+					<view><text class="title_style">{{item.organ_name ||'--'}}</text><text>{{filter.formatterTime(item.created_time)}}</text></view>
+					<view class="color_red font_34">￥{{item.settled_money}}</view>
+				</view>
+				<view class="flexRow padding_b padding_t">
+					<view><text>收款方：</text><text>{{item.bank_name}}</text></view>
+				</view>
+				<view class="flexRow padding_b">
+					<view><text>流水号：</text><text>{{item.acount_num}}</text></view>
+				</view>
+				<!-- <view class="flexRow color_999 ">
+					<view><text>备注：</text><text>{{item.remarks || '-'}}</text></view>
+				</view> -->
+			</view>
+			<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+		 </view>
+		</scroll-view>
+  </view>
+</view>

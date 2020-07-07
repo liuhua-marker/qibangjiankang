@@ -1,0 +1,27 @@
+<view class='main-box'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='input-box'>
+      <text>套盒名称:</text>
+      <input class='input-content' placeholder-class="placeholderStyle" placeholder="" type="text" data-value='{{name}}' name="name" confirm-type="done" value='筋骨套盒' disabled="true">{{post.name}}</input>
+    </view>
+   
+
+    <view class="input-box">
+      
+      <picker range="{{sexarray}}" value="{{sexindex}}" bindchange="bindPickerChange">
+        <view class="picker">
+          <text>服务项目:</text>
+          <input tel_no type="number" class='input-content' placeholder-class="placeholderStyle" data-value='{{tel}}' name="tel" placeholder="请选择服务项目" maxlength="11" value='{{sexvalue}}' disabled='disabled'></input>
+        </view>
+      </picker>
+    </view>
+
+    
+    <view class="btn-area">
+     
+      <button bindtap='submitbox' class='btn'>确认</button>
+      <!-- <button formType="reset" class='btn'>重 置</button> -->
+    </view>
+   
+  </form>
+</view>

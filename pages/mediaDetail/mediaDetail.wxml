@@ -1,0 +1,31 @@
+<!--pages/mediaDetail/mediaDetail.wxml-->
+<view class="panel">
+	<view class="video_box">
+		<block wx:if="{{loadData.imageList[index].type === 'video'}}">
+			<video id="video" src="{{loadData.imageList[index].downUrl}}" class="video_style"></video>
+			<cover-image onerror="imgError" wx:if="{{img_flag}}" class="top_img " src="{{loadData.imageList[index].frontImage}}" bindtap="play"></cover-image>
+		</block>
+		<block wx:else>
+			<image src="{{loadData.imageList[index].downUrl}}" class="img_style"  data-type='image' bindtap="changeImg" data-downurl="{{loadData.imageList[index].downUrl}}"></image>
+		</block>
+	</view>
+	<view class="title">
+		<view class="left_bold"></view>{{loadData.title}}
+	</view>
+	<scroll-view scroll-x>
+		<view class="img_panel">
+			<view class="img_item {{index===i?'active':''}}" wx:for="{{loadData.imageList}}" wx:for-index='i' data-downUrl="{{item.downUrl}}" data-index="{{i}}" data-type='{{item.type}}' bindtap="changeImg">
+				<image src="{{item.type==='video'?item.frontImage:item.downUrl}}" class="img_class "></image>
+				<view class="ex_text">
+          {{item.name}}
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+	<view class="title">
+		<view class="left_bold"></view>专题简介
+	</view>
+	<view class="bottom_text">
+		{{loadData.comment}}
+	</view>
+</view>

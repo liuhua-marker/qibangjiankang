@@ -1,0 +1,32 @@
+<!--pages/menuPage/menuPage.wxml-->
+<view class="panel bg_F8">
+	<view class="top_panel">
+		<view class="top_text">
+			<view class="head_img_box">
+				<open-data type="userAvatarUrl" class="Head_1"></open-data>
+			</view><text class="text_style">{{organ_name || '--'}}</text>
+		</view>
+		<view class="center_box flexRow">
+			<view class="center_item flex_item">
+				<view class="item_top">{{pay_all_value || 0}}</view>
+				<view class="item_bottom">累计交易（元）</view>
+			</view>
+			<view class="center_item flex_item">
+				<view class="item_top">{{sep_value || 0}}</view>
+				<view class="item_bottom">累计收益（元）</view>
+			</view>
+			<view class="center_item flex_item">
+				<view class="item_top">{{shop_num || 0}}</view>
+				<view class="item_bottom">累计门店</view>
+			</view>
+		</view>
+	</view>
+	<view class="center_panel">
+		<view class=" center_panel_item" wx:for="{{btnList}}" wx:for-item="item" wx:key="index">
+			<navigator class="center_item_box" url="{{item.path}}">
+				<image class="img_style" src='../../images/menuPage/{{index}}.png'></image>
+				<view class="item_bottom">{{item.label}}</view>
+			</navigator>
+		</view>
+	</view>
+</view>

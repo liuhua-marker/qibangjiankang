@@ -1,0 +1,24 @@
+<!-- pages/addcard/addcard.wxml -->
+<view class="main_bg">
+  <image class="bg" src="../../../../../images/bg.png" />
+  <view class="content">
+    <view class='toptext'>
+      <text>店员扫码添加</text>
+    </view>
+    <i-message id="message" />
+    <view class="panel_box">
+      <i-panel title="">
+        <i-input value="{{ name }}" title="姓名" bind:blur="nameVerifyFun" placeholder="姓名" maxlength="50" />
+        <picker mode="date" value="{{date}}" start="1940-01-01" end="2029-1-23" bindchange="bindDateChange">
+          <i-input type="number" title="出生日期" placeholder="请选择出生日期" maxlength="11" value='{{dates}}' disabled='disabled' />
+        </picker>
+        <i-input value="{{ phone }}" type="number" bind:blur="phoneVerifyFun" title="联系电话" placeholder="请输入手机号" maxlength="50" />
+        <i-radio-group class='sexWrapper' current="{{current}}" bindchange="handleFruitChange">
+          <i-radio class='sex' wx:for="{{fruit}}" position="{{position}}" wx:key="{{item.id}}" title="{{item.id}}" value="{{item.name}}" color="#e1474d"></i-radio>
+        </i-radio-group>
+        <i-input value="{{ addrs }}" bind:blur="addrVerifyFun" title="详细地址" placeholder="请输入详细地址(最多50字)" maxlength="50" />
+      </i-panel>
+    </view>
+    <view bindtap="handleClick" class="sub_button">{{yesButton}}</view>
+  </view>
+</view>

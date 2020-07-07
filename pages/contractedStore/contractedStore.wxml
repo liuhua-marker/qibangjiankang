@@ -1,0 +1,42 @@
+<!--pages/menuPage/menuPage.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class="panel bg_F8">
+	<view class="top_panel">
+		<view class="center_box flexRow">
+			<view class="flex_item">
+				<view class="item_top">{{total}} <text class="money_style">家</text></view>
+				<view class="gray_text font_34">合计</view>
+			</view>
+			<view class="center_item flex_item flexRow">
+				<view class="right_item margin_r">
+					<view class="item_top">{{addWeek}} <text class="money_style">家</text></view>
+					<view class="gray_text">本周新增</view>
+				</view>
+				<view class="right_item">
+					<view class="item_top">{{addMonth}} <text class="money_style">家</text></view>
+					<view class="gray_text">本月新增</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="title"><text class="line_style">签约统计表</text></view>
+	<view class="table_panel">
+		<view class="flexRow flex_top color_333">
+			<view class="flex_table_item width_60">签约下级</view>
+			<view class="flex_table_item width_40">签约数量</view>
+		</view>
+		<!-- 滑到底部加载 -->
+		<scroll-view style="height:calc(100% - 100rpx);" scroll-y bindscrolltolower='bindscrolltolower'>
+			<navigator url="../../pages/signingStatistics/signingStatistics?currentBid={{item.org_id}}" class="flexRow flex_top" bindtap="showDialog" wx:for="{{items}}" wx:for-item="item" wx:key="index">
+				<view class="flex_table_item_td width_60 font_14 color_666">{{item.name}}</view>
+				<view class="flex_table_item_td width_40 font_14 color_red">{{item.shop_num || 0}}
+					<image class="arrow_style" src="../../images/menuPage/arrow.png"></image>
+				</view>
+				<!-- <view class="flex_table_item font_14 {{filter.indexOf(item.rate,'+')>-1?'color_red':'color_blue'}}">{{item.rate}}
+					<image class="arrow_style" src="../../images/menuPage/arrow.png"></image>
+				</view> -->
+			</navigator>
+			<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+		</scroll-view>
+	</view>
+</view>

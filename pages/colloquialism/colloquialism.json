@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "销售话术助手",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "drop-down-card": "../../components/drop-down-card/drop-down-card",
+    "load-more": "../../components/load-more/index"
+  }
+  
+}

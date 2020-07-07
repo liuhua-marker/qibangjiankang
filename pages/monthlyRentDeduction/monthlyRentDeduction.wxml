@@ -1,0 +1,31 @@
+<!--月租扣费-->
+<view class="table_panel">
+	<!-- 滑到底部加载 -->
+	<scroll-view style="height:calc(100%);" scroll-y bindscrolltolower='bindscrolltolower'>
+		<view class="load_more" wx:if='{{!items||items.length===0}}'>暂无数据</view>
+		<view wx:else>
+			<view class="flex_top" wx:for="{{items}}" wx:for-item="item" wx:key="index">
+				<view class="flexRow padding_b border_bottom">
+					<view><text class="title_style">{{item.name || '2020-05-06 20:00:00'}}</text><text>{{item.parent_name}}</text></view>
+					<view class="color_red">{{item.status || '自动扣款成功'}}</view>
+				</view>
+				<view class="flexRow padding_t">
+					<view><text class="title_style">基础套餐9800</text><text>{{item.parent_name}}</text></view>
+          	<view class="color_red">{{29800}}</view>
+				</view>
+				<view class="flexRow padding_t">
+					<view><text>成交额：</text><text>{{item.pay_all_value}}元</text></view>
+				</view>
+				<view class="flexRow">
+					<view><text>佣金额：</text><text>{{item.sep_value}}元</text></view>
+					<view class="btn_detail" bindtap="showDialog">物流详情</view>
+				</view>
+				<!-- <view class="flexRow">
+					<view>2020-01-05 23:22:14</view>
+					
+				</view> -->
+			</view>
+			<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+		</view>
+	</scroll-view>
+</view>

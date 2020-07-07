@@ -1,0 +1,451 @@
+<!-- pages/mine/mine.wxml -->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<!-- 头部 -->
+<i-message id="message" />
+<view class='mine_info'>
+	<image class='mine_banner' src='../../../../../images/bg.png'></image>
+	<view class="head_one">
+		<view class="head_img_box">
+			<image src="{{headImg}}" class="Head_1"></image>
+		</view>
+		<view class="head_name">
+			<view class="h_t_1">
+				{{userName}}
+			</view>
+			<view class="h_t_2">{{phone}}</view>
+		</view>
+		<!-- <view class="change_button" bindtap="changeRole">详情信息</view> -->
+	</view>
+</view>
+<view class="listNormal">
+	<view class="normalList">
+		<block wx:for="{{ listNormal }}" wx:key="index" wx:for-item="item">
+			<button class="btn1 {{state== index?'active-tag':''}}" bindtap="getNormal" data-key='{{index}}' data-id="{{item.id}}" data-perorationId="{{item.perorationId}}" data-name="{{item.name}}">{{item.name}}</button>
+		</block>
+	</view>
+</view>
+
+
+<view style="position:relative">
+	<view class="normal">
+		<image src="http://file-best.qbjiankang.com/bang/null/image/2020/06/10/f78a7984-64f2-49f3-9f0c-4c287baf3906.png" class="we_imges_name"></image>
+		<view class="normaldata">
+			{{ctNormalName}}
+		</view>
+		<view wx:if="{{evalId}}" class="ctNormalName-btn" style="border: 0" bindtap="begainTest">开始人工检测</view>
+		<view wx:if="{{evalId}}" class="ctNormalName-btn">{{healthResult.qbEvalResultVoList.length!=0?healthResult.qbEvalResultVoList[0].evalLableItemName:'未检测'}}</view>
+	</view>
+
+	<view id='youhui'>
+		<view class='one' bindtap='cant'>
+			<view class="change_btn {{cantone}}">健康建议</view>
+		</view>
+		<view class='one ' bindtap='cantbt'>
+			<view class="change_btn {{cantthree}}">销售/服务指导意见</view>
+		</view>
+	</view>
+
+	<view class="main can" style='display:{{hidden}};'>
+		<view class='introduces_content'>
+			<view class="content_h1">{{item.name}}</view>
+			<view class="content_title">
+			<view wx:for="{{filter.splitString(ctNormalName,'*')}}"> {{item}}</view>
+			</view>
+			<block wx:for="{{ adviseText }}" wx:key="index" wx:for-item="advise">
+				<view class='list'> {{advise}}</view>
+			</block>
+		</view>
+	</view>
+</view>
+
+<!-- Tab2 -->
+<view class='main2' style='display:{{threevi}};'>
+	<view class="introduce_panel" wx:if="{{marketList.length>0}}">
+		<view class='left_int'>
+		<text class="tag_sty">指导</text>
+			
+		</view>
+		<view class='marketdetail'>
+			<!-- {{index+1}}：{{market.playText}} -->
+			{{marketList}}
+		</view>
+	</view>
+	<block wx:for="{{ preceptList }}" wx:key="index" wx:for-item="precep">
+		<view class='introduce' wx:if="{{precep.pullDown}}">
+			<view class='introduce_title' bindtap='storageIntroduce' data-index="{{index}}" data-curePreceptId='{{precep.curePreceptId}}'>
+					<!-- <image src="../image/d_zan.png" class="we_imges_laba" wx:if="{{!precep.isHidden}}"></image> -->
+					<view class="we_imges_laba"  wx:if="{{!precep.isHidden}}">推荐</view>
+				<view class="case_title">
+					<view class="preceptNumber" wx:if="{{precep.amount}}">{{precep.amount}}元</view>
+					<view class="preceptName">{{precep.preceptName}}</view>
+				</view>
+			</view>
+			<view class='zhankai'>
+				<view bindtap='storageIntroduce' data-curePreceptId='{{precep.curePreceptId}}' data-index="{{index}}">+</view>
+			</view>
+		</view>
+		<view class='introduces' wx:else>
+			<view class='introduces_head'>
+				<view class='introduce_title' bindtap='storageIntroduce' data-curePreceptId='{{precep.curePreceptId}}' data-index="{{index}}">
+					<block>
+					<view class="we_imges_laba"  wx:if="{{!precep.isHidden}}">推荐</view>
+
+					</block>
+
+					<view class="preceptNumber" wx:if="{{precep.amount}}">{{precep.amount}}元</view>
+					<view class="preceptName">{{precep.preceptName}}</view>
+				</view>
+				<view class='zhankai'>
+					<view bindtap='storageIntroduce' data-curePreceptId='{{precep.curePreceptId}}' data-index="{{index}}">-</view>
+				</view>
+			</view>
+			<view class='hr'></view>
+
+
+
+
+			<view class='introduces_content'>
+
+				<view class='case_detail__service_title' wx:if="{{precep.cureServiceList.length > 0}}">
+					<image src="../image/book.png" class="we_imges_book"></image>
+					<view class="booktile">
+						销售涉及的项目：
+					</view>
+					<view class="demo_panel">
+						<block wx:for="{{ precep.cureServiceList }}" wx:key="index" wx:for-item="serviceitem">
+							<view class='servicedetail actvity' data-id="{{serviceitem.businessId}}" catchtap="servicehs">
+								《{{!serviceitem.name ? '无':serviceitem.name}}》
+							</view>
+						</block>
+					</view>
+				</view>
+				<view class='introduces_case' wx:if="{{precep.curegoodsList.length > 0}}">
+					<image src="../image/book.png" class="we_imges_book"></image>
+					<view class="booktile">
+						销售涉及的产品：
+					</view>
+					<view class="demo_panel">
+						<block wx:for="{{ precep.curegoodsList }}" wx:key="index" wx:for-item="gooditem">
+							<view class='servicedetail actvity' data-id="{{gooditem.businessId}}" catchtap="getGoodsDetail">
+								《{{!gooditem.name ? '无':gooditem.name}}》
+							</view>
+						</block>
+					</view>
+				</view>
+
+				<view class='introduces_case'>
+					<view class="case_detail_title">
+						<image src="../image/book.png" class="we_imges_book"></image>
+						<view class="booktile">
+							调理方案内容：
+						</view>
+
+					</view>
+					<view class='casedetail' bindlongtap="longTap"  data-text="{{precep.preceptDetail}}" data-title="调理方案内容">
+						<view wx:for="{{filter.splitString(precep.preceptDetail,'*')}}"> {{item}}</view>
+				</view>
+				</view>
+
+				<view class='introduces_case'>
+
+					<image src="../image/book.png" class="we_imges_book"></image>
+					<view class="booktile">
+						方案功效：
+					</view>
+					<view class='casedetail' bindlongtap="longTap" data-text="{{precep.preceptEffect}}" data-title="方案功效">
+						<view wx:for="{{filter.splitString(precep.preceptEffect,'*')}}"> {{item}}</view>
+					</view>
+				</view>
+
+				<view class='introduces_video' wx:if="{{precep.videoHealthList.length > 0}}">
+					<image src="../image/book.png" class="we_imges_book"></image>
+					<view class="booktile ">
+						销售教学视频：
+					</view>
+					<view class="video_list">
+						<block wx:for="{{precep.videoHealthList}}" wx:key="*this">
+							<view class="img_list_video">
+								<view class="videoTile">{{item.title}} </view>
+								<video class="q-video" src="{{item.downUrl}}" title="{{item.title}}"></video>
+							</view>
+						</block>
+					</view>
+				</view>
+
+				<!-- <view class='introduces_case'>
+					<image src="../image/book.png" class="we_imges_book"></image>
+					<view class="booktile">
+						销售话术：
+					</view>
+					<block wx:for="{{ speechcraftText }}" wx:key="index" wx:for-item="speechName">
+						<view class='casedetail' bindlongtap="longTap" data-text="{{speechName}}" data-title="销售话术">
+
+							<text  > {{speechName}}</text>
+						</view>
+					</block>
+				</view> -->
+
+				<view class='introduces_case' wx:if="{{precep.imgHealthList.length > 0}}">
+					<image src="../image/book.png" class="we_imges_book"></image>
+					<view class="booktile">
+						相关专业知识：
+					</view>
+					<view class="img_list">
+						<view class="img_list_box" wx:for="{{precep.imgHealthList}}" wx:key="*this">
+							<image class="q-image" src="{{item.downUrl}}" mode="aspectFill" data-index="{{index}}" data-downlist="{{precep.imgHealthList}}" catchtap="previewImg" />
+						</view>
+					</view>
+				</view>
+				<block wx:if='{{precep.fwznList.length !==0}}'>
+					<view class='salesintroduce' wx:if="{{salesGuideuce}}">
+						<view class='introduce_title' bindtap='salesGuide'>
+							<view class="case_title">
+								<!-- <view class="preceptNumber">服务指南</view> -->
+								<view class="preceptName">服务指南</view>
+							</view>
+						</view>
+						<view class='zhankai'>
+							<!-- <view bindtap='salesGuide'>+</view> -->
+						</view>
+					</view>
+					<view class='salesintroduces'>
+						<view class='introduces_head'>
+							<view class='introduce_title' bindtap='salesGuide'>
+								<!-- <view class="preceptNumber">服务指南</view> -->
+								<view class="preceptName">服务指南</view>
+							</view>
+							<!-- <view class='zhankai' bindtap='salesGuide'></view> -->
+						</view>
+						<!-- 添加描述文字 -->
+						<view class="casedetail"></view>
+						<view class='hr'></view>
+						<view class='salesintroduces_content '>
+							<block wx:for="{{precep.fwznList}}">
+								<view class="card_panel" bindtap="toDetail" data-materialId='{{item.materialId}}'>
+									<image class="card_list" src="{{item.downUrl || '/images/error.jpg'}}" onerror="imgError" data-index="{{index}}" data-type='fwznList'></image>
+									<view class="text_center">
+										<view class="text_sty" class="color_blue">{{item.name}}</view>
+										<view class="text_sty">{{item.title}}</view>
+									</view>
+									<view style="text-align:right">
+										<image src="../../images/menuPage/arrow2.png" class="drop_img" mode="widthFix"></image>
+									</view>
+								</view>
+								<view class='hr'></view>
+							</block>
+						</view>
+					</view>
+				</block>
+				<block wx:if='{{precep.zyzsList.length !=0}}'>
+					<view class='salesintroduce' wx:if="{{!prosGuideuce[index]}}">
+						<view class='introduce_title' bindtap='prosSalesGuide' data-index="{{index}}">
+							<view class="case_title">
+								<!-- <view class="preceptNumber">专业知识</view> -->
+								<view class="preceptName">专业知识</view>
+							</view>
+
+						</view>
+						<view class='zhankai'>
+							<view bindtap='prosSalesGuide' data-index="{{index}}" class="zk">展开</view>
+						</view>
+					</view>
+					<view class='salesintroduces' wx:else>
+						<view class='introduces_head'>
+							<view class='introduce_title' bindtap='prosSalesGuide' data-index="{{index}}">
+								<!-- <view class="preceptNumber">专业知识</view> -->
+								<view class="preceptName">专业知识</view>
+							</view>
+							<view class='zhankai zk' bindtap='prosSalesGuide'>收起</view>
+						</view>
+						<view class='hr'></view>
+						<view class='salesintroduces_content'>
+							<block wx:for="{{precep.zyzsList}}">
+								<view class="card_panel" bindtap="toDetail" data-materialId='{{item.materialId}}'>
+									<image class="card_list" src="{{item.downUrl}}" onerror="imgError" data-index="{{index}}" data-type='zyzsList'></image>
+									<view class="text_center">
+										<view class="text_sty" class="color_blue">{{item.name}}</view>
+										<view class="text_sty">{{item.title}}</view>
+									</view>
+									<view style="text-align:right">
+										<image src="../../images/menuPage/arrow2.png" class="drop_img" mode="widthFix"></image>
+									</view>
+								</view>
+								<view class='hr'></view>
+							</block>
+						</view>
+					</view>
+				</block>
+
+
+
+
+				<block>
+					<view class='introduces_case_bottom' catchtap='storageCase' wx:for="{{ precep.qbCureCase }}" wx:key="casesindex" wx:for-item="casesitem" data-id="{{casesitem.id}}">
+						<image src="../image/book.png" class="we_imges_book"></image>
+						<view class="booktile">
+							案例{{index +1}}：
+						</view>
+						<view class="widthall">
+							<view class='actvity lookdetail'>
+								查看详情
+							</view>
+							<view class='casedetail_kehu actvity'>
+								{{casesitem.beforeAdjustment}}
+							</view>
+
+						</view>
+					</view>
+					<view class='curehr'></view>
+				</block>
+			</view>
+		</view>
+	</block>
+	<image wx:if="{{isSHowNoData}}" class="nodataImg" style="width:300rpx;margin:0 auto" mode="widthFix" src='../image/nodata.png'></image>
+</view>
+
+
+
+
+
+
+<!-- 遮罩层 -->
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModalCase}}"></view>
+<!-- 弹出层 -->
+<view class="modalDlg" wx:if="{{showModalCase}}">
+	<!-- 二维码或其他图片 -->
+	<view class="modalTile">
+		<text class="masktitle">成功案例</text>
+		<image src="../image/x.png" class="we_imges_x" bindtap="caseok"></image>
+	</view>
+	<scroll-view scroll-y="true" class="modalBody">
+		<view class="hs_projectName">
+			<image src="../image/box.png" class="we_imges_book"></image>
+			<view>
+				<text class="modalbooktile">	客户：</text> <text class="bodyText"> {{currentCase.client}}</text>
+			</view>
+		</view>
+		<view class="hs_serviceMemo">
+			<image src="../image/box.png" class="we_imges_book"></image>
+			<view>
+				<text class="modalbooktile">	客源：</text> <text class="bodyText"> {{currentCase.passengerSource}}</text>
+			</view>
+		</view>
+
+
+		<view class="hs_remarks">
+			<image src="../image/box.png" class="we_imges_book"></image>
+			<view>
+				<text class="modalbooktile">	调前：</text> <text class="bodyText"> {{currentCase.beforeAdjustment}}</text>
+			</view>
+		</view>
+		<view class="hs_remarks">
+			<image src="../image/box.png" class="we_imges_book"></image>
+			<view>
+				<text class="modalbooktile">		调后：</text> <text class="bodyText"> {{currentCase.afterAdjustment}}</text>
+			</view>
+		</view>
+	</scroll-view>
+</view>
+
+
+
+<!-- 遮罩层 -->
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModalGoods}}" catchtouchmove="true"></view>
+<!-- 弹出层 -->
+<view class="modalDlg" wx:if="{{showModalGoods}}">
+	<!-- 二维码或其他图片 -->
+	<view class="modalTile">
+		<text class="masktitle">{{goodsList.goodsName}}</text>
+		<image src="../image/x.png" class="we_imges_x" bindtap="goodok"></image>
+	</view>
+	<scroll-view scroll-y="true" class="modalBody">
+		<block wx:for="{{goodsList.imageVoList}}" wx:key="index" wx:for-item="imageItem">
+			<image src="{{imageItem.downUrl}}" mode="widthFix" class="image_style"></image>
+		</block>
+		<!-- <view class="hs_projectName">
+			<image src="../image/box.png" class="we_imges_book"></image>
+			<view>
+				<text class="modalbooktile">	产品名称：</text>
+				 <text class="bodyText"> {{goodsList.goodsName}}</text>
+			</view>
+		</view> -->
+		<view class="hs_serviceMemo">
+			<!-- <image src="../image/box.png" class="we_imges_book"></image> -->
+			<view>
+				<!-- <text class="modalbooktile">	产品功效简介：</text>  -->
+				<view class="bodyText" wx:for="{{filter.splitString(goodsList.productEfficacy,'*')}}"> {{item}}</view>
+			</view>
+
+		</view>
+
+
+		<!-- <view class="hs_remarks">
+			<image src="../image/box.png" class="we_imges_book"></image>
+			<view>
+				<text class="modalbooktile">	销售话术：</text> <text class="bodyText"> {{goodsList.salesPitch}}</text>
+			</view>
+		</view> -->
+		<!-- <image src='{{goodsList.imgUrl}}' style="width:100%;height:300px;" mode='widthFix'></image> -->
+	</scroll-view>
+</view>
+
+
+<!-- 遮罩层 -->
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<!-- 弹出层 -->
+<view class="modalDlg" wx:if="{{showModal}}">
+	<!-- 二维码或其他图片 -->
+	<view class="modalTile">
+		<text class="masktitle">{{servicehsList.projectName}}</text>
+		<image src="../image/x.png" class="we_imges_x" bindtap="ok"></image>
+	</view>
+	<scroll-view scroll-y="true" class="modalBody">
+		<block wx:for="{{servicehsList.imageVoList}}" wx:key="index" wx:for-item="imageItem">
+			<image src="{{imageItem.downUrl}}" mode="widthFix" class="image_style"></image>
+		</block>
+		<!-- <view class="hs_projectName">
+			<image src="../image/box.png" class="we_imges_book"></image>
+			<view>
+				<text class="modalbooktile">	服务名称：</text> <text class="bodyText"> {{servicehsList.projectName}}</text>
+			</view>
+		</view> -->
+		<view class="hs_serviceMemo">
+			<!-- <image src="../image/box.png" class="we_imges_book"></image> -->
+			<view>
+				<!-- <text class="modalbooktile">	服务功能简介：</text>  -->
+								<view class="bodyText" wx:for="{{filter.splitString(servicehsList.serviceMemo,'*')}}"> {{item}}</view>
+
+				<!-- <text class="bodyText"> {{servicehsList.serviceMemo}}</text> -->
+			</view>
+		</view>
+
+		<!-- <block wx:for="{{ servicehsList }}" wx:key="index" wx:for-item="fwhs">
+			<view class="hs_remarks">
+				<image src="../image/box.png" class="we_imges_book"></image>
+				<view>
+					<text class="modalbooktile">	营销话术：</text> <text class="bodyText">{{fwhs.remarks}}</text>
+				</view>
+			</view>
+		</block> -->
+
+		<!-- <image src='{{servicehsList[0].imgUrl}}' style="width:100%;height:300px;" mode='widthFix'></image> -->
+	</scroll-view>
+</view>
+
+
+<!-- 遮罩层 -->
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModalEnlarge}}"></view>
+<!-- 弹出层 -->
+<view class="modalDlgEnlarge" wx:if="{{showModalEnlarge}}" bindtap="enlargeOk">
+	<!-- 二维码或其他图片 -->
+	<view>
+		<text class="enlargeTitle">{{EnlargeTitle}}</text>
+	</view>
+	<scroll-view scroll-y="true" class="modalEnlargeBody">
+		<view class="enlargName">
+			<!-- <text class="modalEnlarge" >{{currentEnlarge}}</text> -->
+				<view class="modalEnlarge" wx:for="{{filter.splitString(currentEnlarge,'*')}}"> {{item}}</view>
+		</view>
+
+	</scroll-view>
+</view>

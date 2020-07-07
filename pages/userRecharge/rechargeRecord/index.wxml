@@ -1,0 +1,54 @@
+<view class="container-box">
+	<!-- <view wx:if="{{listData.length > 0}}" class="search">
+    <picker mode="date" value="{{dataTime}}" bindchange="bindDateChange">
+    <view class="picker">
+      选择日期  {{dataTime}}
+    </view>
+  </picker>
+  </view> -->
+	<view wx:if="{{listData.length > 0}}" wx:for="{{listData}}" wx:key="index" class="box">
+		<view class="box-head">
+			<view class="head_id">充值单号：
+        <view class="head_it" data-id="{{item.id}}" bindtap="handleShow">{{item.id}}</view>
+			</view>
+			<view class="listId">
+				<mp-icon class="mpIcon" icon="time" color="black" size="{{14}}"></mp-icon>
+				<view>{{item.createdTime}}</view>
+			</view>
+		</view>
+		<view class="table">
+			<view class="tr">
+				<block wx:for="{{listHead}}" wx:key="index">
+					<view class="th">{{item}}</view>
+				</block>
+			</view>
+			<view class="tr">
+				<view class="color td">{{item.value}}</view>
+				<view class="td">{{item.type}}</view>
+				<view class="td">
+					<view style="color: #CFA972;" data-index="{{index}}" bindtap="seeVoucher">查看凭证</view>
+				</view>
+				<view class="td">
+					<view wx:if="{{item.status === 0}}">审核中</view>
+					<view wx:if="{{item.status === 1}}" style="color: #0D7EC5;">充值成功</view>
+					<view wx:if="{{item.status === 2}}">
+						<!-- <view class="people" hidden="{{isHidden}}">请联系服务人员</view> -->
+						<view bindtap="peopleIsHidden">
+              <icon class="icon-small" type="warn" size="14"></icon>
+						  充值失败
+            </view>
+
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view wx:if="{{listData.length === 0}}" class="NoRecharge">
+		<image src="../../../images/noRecord.png" class='img'></image>
+	</view>
+	<!-- 弹框 -->
+	<view wx:if="{{dialogShow}}" class="dialog" bindtap="handleDialog">
+		<!-- <image wx:if="{{imgUrl.length > 0}}" src="{{imgUrl}}" mode="aspectFit" bindtap="handleDialog" class="dialog_img"></image> -->
+		<text>{{imgText}}</text>
+	</view>
+</view>

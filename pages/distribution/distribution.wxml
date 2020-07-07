@@ -1,0 +1,76 @@
+<!--分配话术-->
+<view class="bg_F8" style="padding-top:100rpx">
+	<view class='panel'>
+		<view class="flexRow flex_panel">
+			<view>话术包</view>
+			<view>
+				<picker bindchange="bindPickerChange" value="{{index}}" range-key='name' range="{{speechArr}}" data-type="index">
+					<view class="picker">
+						{{speechArr[index].name||'请选择'}}
+						<image class="drop_img" mode="widthFix" src="../../images/menuPage/arrow.png"></image>
+					</view>
+				</picker>
+			</view>
+		</view>
+		<view class="flexRow flex_panel">
+			<view>执行者</view>
+			<view class="picker" bindtap="handlePersonal" data-type="personal">
+				<view>{{personal.length === 0?'请选择':personal}}
+					<image class="drop_img" mode="widthFix" src="../../images/menuPage/arrow.png"></image>
+				</view>
+			</view>
+		</view>
+		<view class="flexRow flex_panel">
+			<view>开始时间</view>
+			<view>
+				<picker mode='date' bindchange="bindPickerChange" value="{{startDate}}" start="{{start_s}}" end="{{endDate}}" data-type="startDate">
+					<view class="picker">
+						{{startDate||'请选择'}}
+						<image class="drop_img" mode="widthFix" src="../../images/menuPage/arrow.png"></image>
+					</view>
+				</picker>
+			</view>
+		</view>
+		<view class="flexRow flex_panel">
+			<view>结束时间</view>
+			<view>
+				<picker mode='date' bindchange="bindPickerChange" value="{{endDate}}" start="{{startDate}}" data-type="endDate">
+					<view class="picker">
+						{{endDate||'请选择'}}
+						<image class="drop_img" mode="widthFix" src="../../images/menuPage/arrow.png"></image>
+					</view>
+				</picker>
+			</view>
+		</view>
+		<view class="btn_box">
+			<button class="btn_bottom" bindtap="cancel">取消</button>
+			<button class="btn_bottom btn_submit" bindtap="submit">分配</button>
+		</view>
+	</view>
+
+</view>
+
+<view>
+
+	<!-- 执行者弹框 -->
+	<view class="page_panel" wx:if="{{showPersonal}}" bindtap="cancelPersonal">
+		<view class="page-body" catchtap="personal">
+			<!-- <view class="flexRow">
+				<button class="btn_basic" catchtap="cancelPersonal">取消</button>
+				<button class="btn_basic btn_green" catchtap="surePersonal">确定</button>
+			</view> -->
+			<scroll-view style="height:400rpx" scroll-y>
+				<checkbox-group bindchange="checkboxChange" style="width: 100%; height: 200px;">
+					<label class="weui-cell weui-check__label" wx:for="{{personalArr}}" wx:key="{{index}}">
+						<view class="weui-cell__hd text_right">
+							<checkbox value="{{item.id}}" checked="{{perSonalChecked[index]}}" />
+						</view>
+						<view class="weui-cell__bd text_checkbox">{{item.name}}</view>
+					</label>
+				</checkbox-group>
+			</scroll-view>
+		</view>
+	</view>
+
+
+</view>

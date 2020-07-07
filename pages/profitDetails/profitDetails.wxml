@@ -1,0 +1,49 @@
+<!--pages/menuPage/menuPage.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class="panel bg_F8">
+	<view class="top_panel">
+		<view class="center_box">
+			<view class="flexRow">
+				<view class="gray_text">{{name}} {{date}}业绩单</view>
+			</view>
+			<view class="flexRow padding_20">
+				<view class="flex_item">
+					<view class="item_top">{{order_num}}</view>
+					<view class="gray_text">支付订单</view>
+				</view>
+				<view class="flex_item">
+					<view class="item_top">￥{{pay_all_value}}</view>
+					<view class="gray_text">累计金额</view>
+				</view>
+				<view class="flex_item">
+					<view class="item_top">￥{{sep_value}}</view>
+					<view class="gray_text">产生利润</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="table_panel">
+		<!-- 滑到底部加载 -->
+		<scroll-view style="height:calc(100%);" scroll-y bindscrolltolower='bindscrolltolower'>
+			<view class="load_more" wx:if='{{!items||items.length===0}}'>暂无数据</view>
+			<view wx:else>
+				<view class="flex_top" wx:for="{{items}}" wx:for-item="item" wx:key="index">
+					<view class="flexRow padding_b border_bottom">
+						<view><text class="title_style">{{item['consum_name']}}</text></view>
+						<view class="color_red">已完成</view>
+					</view>
+					<view class="flexRow padding_b padding_t">
+						<view><text>成交额：</text><text>{{item['pay_all_value']}}元</text></view>
+					</view>
+					<view class="flexRow padding_b">
+						<view><text>佣金额：</text><text>{{item.sep_value}}元</text></view>
+					</view>
+					<view class="flexRow">
+						<view>{{filter.formatterTime(item['created_time'],true)}}</view>
+					</view>
+				</view>
+				<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+			</view>
+		</scroll-view>
+	</view>
+</view>

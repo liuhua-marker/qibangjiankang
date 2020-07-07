@@ -1,0 +1,8 @@
+<view class="container-box">
+  <view class="container-icon">
+    <icon type="success" size="100px"/>
+    <view class="icon-text">充值申请成功</view>
+  </view>
+  <view class="container-by">申请完成，请耐心等待系统审核</view>
+  <button class="container-but" bindtap="viewingProgress">查看充值进度</button>
+</view>

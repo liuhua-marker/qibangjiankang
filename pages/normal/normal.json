@@ -1,0 +1,10 @@
+
+{
+  "navigationBarTitleText": "健康风险详情",
+  "usingComponents": {
+    "i-message": "../../iview/message/index"
+  },
+  "usingComponents2": {
+    "i-input": "../../iview/input/index"
+  }
+}

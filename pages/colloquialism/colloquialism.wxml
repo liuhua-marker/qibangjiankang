@@ -1,0 +1,47 @@
+<!--pages/colloquialism/colloquialism.wxml-->
+<view class="panel">
+	<view class="tabber_panel">
+		<view wx:if='{{isShopMan}}' class="tab_item {{tabIndex==='0'?'tab_active':''}}" data-index="0" bindtap="handleTab"><text>话术包</text></view>
+		<view class="tab_item {{tabIndex==='1'?'tab_active':''}}" data-index="1" bindtap="handleTab"><text>可执行</text></view>
+		<view wx:if='{{isShopMan}}' class="tab_item {{tabIndex==='2'?'tab_active':''}}" data-index="2" bindtap="handleTab"><text>已安排</text></view>
+		<view class="tab_item {{tabIndex==='3'?'tab_active':''}}" data-index="3" bindtap="handleTab"><text>已结束</text></view>
+	</view>
+	<!-- 话术包 -->
+	<scroll-view hidden='{{tabIndex!=="0"}}' style="height:calc(100% - {{height}}rpx); padding:80rpx 0 20rpx 0;" scroll-y bindscrolltolower='bindscrolltolower'>
+			<view wx:if='{{items.length===0}}' class="no_data">暂无数据</view>
+		<drop-down-card wx:for="{{items}}" tabIndex='0' wx:for-item="item" wx:key="index" wx:for-index="index" listData='{{item}}' noBorder='{{index == items.length-1?"no_border":""}}'>
+		</drop-down-card>
+		<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+	</scroll-view>
+	<!-- 可执行 -->
+	<scroll-view hidden='{{tabIndex!=="1"}}' style="height:calc(100% - {{height}}rpx); padding:80rpx 0 20rpx 0;" scroll-y bindscrolltolower='bindscrolltolower'>
+		<view wx:if='{{loadingData.length===0}}' class="no_data">暂无数据</view>
+		<drop-down-card wx:for="{{loadingData}}" tabIndex='1' wx:for-item="item" wx:key="index" wx:for-index="index" listData='{{item}}'  noBorder='{{index == loadingData.length-1?"no_border":""}}'></drop-down-card>
+		<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+	</scroll-view>
+	<!-- 已安排 -->
+	<scroll-view hidden='{{tabIndex!=="2"}}' style="height:calc(100% - {{height}}rpx); padding:80rpx 0 20rpx 0;" scroll-y bindscrolltolower='bindscrolltolower'>
+			<view wx:if='{{complateData.length===0}}' class="no_data">暂无数据</view>
+		<drop-down-card wx:for="{{complateData}}" addSlot="{{true}}" tabIndex='2' wx:for-item="item" wx:key="index" wx:for-index="index" listData='{{item}}' noBorder='{{index == complateData.length-1?"no_border":""}}'>
+			<view slot='slot'>
+			<!--  noShadow="no_shadow" -->
+				<drop-down-card  bind:dropDown="dropDown" id='{{"dropdown"+index+"_"+i}}' wx:for="{{item.speechcraftRuleEntityLists}}" tabIndex='2' wx:for-item="speechItem" wx:key="i" wx:for-index="i" listData='{{speechItem}}'  noBorder='{{i == item.speechcraftRuleEntityLists.length-1?"no_border":""}}'>
+				</drop-down-card>
+			</view>
+		</drop-down-card>
+		<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+	</scroll-view>
+	<!-- 已结束 -->
+		<scroll-view hidden='{{tabIndex!=="3"}}' style="height:calc(100% - {{height}}rpx); padding:80rpx 0 20rpx 0;" scroll-y bindscrolltolower='bindscrolltolower'>
+			<view wx:if='{{endData.length===0}}' class="no_data">暂无数据</view>
+		<drop-down-card wx:for="{{endData}}" addSlot="{{true}}" tabIndex='3' wx:for-item="item" wx:key="index" wx:for-index="index" listData='{{item}}'   noBorder='{{index == endData.length-1?"no_border":""}}'>
+			<view slot='slot'>
+			<!--  noShadow="no_shadow" -->
+				<drop-down-card bind:dropDown="dropDownold" id='{{"dropdownold"+index+"_"+i}}' wx:for="{{item.speechcraftRuleEntityLists}}" tabIndex='3' wx:for-item="speechItem" wx:key="i" wx:for-index="i" listData='{{speechItem}}'  noBorder='{{i == item.speechcraftRuleEntityLists.length-1?"no_border":""}}'>
+				</drop-down-card>
+			</view>
+		</drop-down-card>
+		<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+	</scroll-view>
+	<button wx:if='{{isShopMan}}' class="btn_style" bindtap="distribution">分配话术包</button>
+</view>

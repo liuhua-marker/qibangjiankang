@@ -1,0 +1,127 @@
+<!-- pages/youhui/youhui.wxml -->
+<view class="main_box">
+	<view class="main">
+		<view class="main_row">
+			<view class="weui-flex address">
+				<view class="we_img">
+					<image src="/images/icon_address.jpg" class="we_imges"></image>
+				</view>
+				<view class="content">套盒名称：{{boxname}}</view>
+			</view>
+		</view>
+		<view class="main_row">
+			<view class="weui-flex time">
+				<view class="we_img">
+					<image src="/images/icon_time.jpg" class="we_imges"></image>
+				</view>
+				<view class="content">使用时长：{{time}}分钟</view>
+			</view>
+		</view>
+		<view class="main_row">
+			<view class="weui-flex phone">
+				<view class="we_img">
+					<image src="/images/icon_phone.jpg" class="we_imges"></image>
+				</view>
+				<view class="content">归属人：{{affname}}</view>
+			</view>
+		</view>
+
+		<view class="main_row">
+			<view class="weui-flex phone">
+				<view class="we_img">
+					<image src="/images/icon_phone.jpg" class="we_imges"></image>
+				</view>
+				<view class="content">剩余次数：{{userTimes > 0 ? userTimes:"0"}}</view>
+			</view>
+		</view>
+
+	</view>
+</view>
+<view id='youhui'>
+	<view class='one' bindtap='cant'>
+		<view class="change_btn {{cantone}}">服务</view>
+	</view>
+	<view class='one ' bindtap='cantbt'>
+		<view class="change_btn {{cantthree}}">服务历史</view>
+	</view>
+</view>
+<!-- 服务里列表页 -->
+<view class='main can' style='display:{{hidden}};'>
+	<!-- pages/usage/usage.wxml -->
+	<!-- 服务列表页中的单选框 -->
+	<radio-group class="radio-group" bindchange="getGenderChange" style="padding: 20rpx;">
+		<label class="radio" wx:for="{{listserve}}" wx:for-item="list" wx:key="index" wx:key="index">
+			<radio value="{{list.projectId}}" checked="{{list.selected}}" style="float: left;margin-top: 30rpx;" />
+			<view class='introduce' wx:if="{{list.pullDown}}">
+				<view class='introduce_title'>
+					<image src="../image/d_zan.png" class="we_imges_laba"></image>
+					<view class="case_title">
+						<view class="preceptNumber">{{list.projectName}}</view>
+					</view>
+				</view>
+				<view class='zhankai'>
+					<view bindtap='storageIntroduce' data-index="{{index}}">+</view>
+				</view>
+			</view>
+			<view class='introduces' wx:else>
+				<view class='introduces_head'>
+					<view class='introduce_title'>
+						<image src="../image/d_zan.png" class="we_imges_laba"></image>
+						<view class="preceptNumber">{{list.projectName}}</view>
+					</view>
+					<view class='zhankai'>
+						<view bindtap='storageIntroduce' data-index="{{index}}">-</view>
+					</view>
+				</view>
+				<view class='hr'></view>
+				<view class='introduces_content' wx:for="{{list.infoList}}" wx:for-item="listinfo" wx:key="index">
+					<view class='list'>{{index+1}}：{{listinfo.serviceAreaName}}</view>
+				</view>
+			</view>
+		</label>
+	</radio-group>
+</view>
+
+<view class='main2' style='display:{{threevi}};'>
+	<!-- 服务清单列表 -->
+	<view class="item_box" wx:for="{{loadList}}" wx:for-item="item" wx:key='id' bindtap='loadDetails'>
+		<!-- 循环列表：左图盒子 -->
+		<view class="item_l">
+			<image src='../../../../../images/history.jpg' class="item_img" />
+		</view>
+		<!-- 右边盒子 -->
+		<view class="item_r">
+			<view class="it_row_1">
+				<!-- <view class="item_t1">姓名:{{item.clientName =="" || item.clientName==null?"顾客":item.clientName}}</view> -->
+				<view class="item_t2">已完成</view>
+			</view>
+			<view class="it_row_2">服务时间:{{item.createdTime}}</view>
+			<view class="it_row_2 it_row_3">店员：{{item.storeName}}</view>
+		</view>
+	</view>
+</view>
+<!-- 遮罩层 -->
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<!-- 弹出层 -->
+<view class="modalDlg" wx:if="{{showModal}}">
+	<!-- 二维码或其他图片 -->
+	<text style='font-size:39rpx;font-weight:bold;padding-top:50rpx;'>扫码销售</text>
+	<view class="container-box">
+		<view class="img-box">
+			<image bindtap="previewImg" mode="scaleToFill" src="{{imagePath}}"></image>
+		</view>
+	</view>
+	<view hidden="{{maskHidden}}" class="mask"></view>
+	<view class="canvas-box">
+		<canvas hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas" />
+	</view>
+	<view bindtap="ok" class="ok">确定</view>
+</view>
+<view class="box_a" wx:if="{{cantone}}">
+	<view class="emptyAddress">
+		<view class="bnb_r">
+			<view class="r_but r_one" bindtap='executeServe'>服务</view>
+			<view class="r_but r_two" bindtap='wqd' style='display:{{sellbuton}}'>销售</view>
+		</view>
+	</view>
+</view>

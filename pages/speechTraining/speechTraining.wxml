@@ -1,0 +1,33 @@
+<!--话术训练-->
+<scroll-view class="bg_F8 panel"  scroll-y >
+	<view class="content_panel">
+		<view class="title">{{speechcraftDetail[index].speechName}}</view>
+		<view>
+			<view class="bage_panel">
+				<view class="bage">训练类型：{{practiseType[speechcraftDetail[index].trainType]}}</view>
+				<view class="bage">训练次数：{{speechcraftDetail[index].trainCount}}次</view>
+			</view>
+			<view class="content_box"> {{speechcraftDetail[index].speechRemarks}}</view>
+			<view class="bottom_panel">
+				<text style="padding-right:40rpx"> 已读：<text class="color_o">{{speechcraftDetail[index].trainAllCount|| 0}}</text>次</text>
+				合格：<text class="color_o">{{speechcraftDetail[index].trainSuccessCount || 0}}</text>次
+			</view>
+
+		</view>
+	</view>
+</scroll-view>
+
+<view class="btn_box">
+	<view type="default" class="btn_bottom" bindtap="changeData" data-type='up'>
+		<view class="triangle_style triangle_left"></view>
+		<view>上一条</view>
+	</view>
+	<view>
+		<view class="btn_read" bindtouchstart="touchStart" bindtouchend="touchEnd"></view>
+		<view class="voice" wx:if='{{showVice}}'></view>
+	</view>
+	<view type="default" class="btn_bottom" bindtap="changeData" data-type='down'>
+		<view class="triangle_style triangle_right"></view>
+		<view>下一条</view>
+	</view>
+</view>

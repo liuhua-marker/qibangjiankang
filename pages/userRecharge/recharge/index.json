@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "商户充值",
+  "usingComponents": {
+    "mp-uploader": "../../../iview/uploader/uploader",
+    "mp-cells": "../../../iview/cells/cells",
+    "mp-cell": "../../../iview/cell",
+    "mp-dialog": "../../../iview/dialog/dialog",
+    "mp-icon": "../../../iview/icons/icon"
+  }
+}

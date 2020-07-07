@@ -1,0 +1,35 @@
+var filter = {
+  indexOf: function (str, value) {
+    return str.indexOf(value)
+  },
+  // 格式化时间
+  formatterTime: function (val, isShowTime) {
+    console.log(val)
+    if (!val) {
+      return '-'
+    }
+    var date = getDate(val)
+    var time = isShowTime ?' ' +initStr(date.getHours()) + ":" + initStr(date.getMinutes()) + ":" + initStr(date.getSeconds()) : ''
+    return date.getFullYear() + '-' + initStr((date.getMonth() + 1)) + '-' + initStr(date.getDate()) + time
+    function initStr(value){
+      if(value>9){
+        return value
+      }else{
+        return "0"+value
+      }
+    }
+  },
+  // 截取字符串
+  splitString:function(str,spalitStr,emptyText){
+    if(!str){
+      return [emptyText||'暂无']
+    }else{
+      return str.split(spalitStr)
+    }
+  }
+}
+module.exports = {
+  indexOf: filter.indexOf,
+  formatterTime:filter.formatterTime,
+  splitString:filter.splitString
+}

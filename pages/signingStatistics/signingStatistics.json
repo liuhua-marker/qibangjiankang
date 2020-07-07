@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "签约类型统计",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "load-more": "../../components/load-more/index",
+    "ec-canvas": "../../components/ec-canvas/ec-canvas"
+  }
+  
+}

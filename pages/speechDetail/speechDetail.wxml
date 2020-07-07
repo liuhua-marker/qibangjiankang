@@ -1,0 +1,4 @@
+		<scroll-view  style="height:100%;" scroll-y bindscrolltolower='bindscrolltolower'>
+			<drop-down-card wx:for="{{items}}" tabIndex='2' wx:for-item="item" wx:key="index" wx:for-index="index"  listData='{{item}}' ></drop-down-card>
+			<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+		</scroll-view>

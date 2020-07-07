@@ -1,0 +1,4 @@
+/* pages/speechDetail/speechDetail.wxss */
+page{
+  height: 100%;
+}

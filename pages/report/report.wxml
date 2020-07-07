@@ -1,0 +1,127 @@
+<view  > <!-- wx:if="{{bodyview}}" -->
+	<view wx:if="{{dzdisplay}}">
+		<slideTab tList="{{statusType}}" bind:changeCurrent="swichNav" currentTab="{{currentType}}" data-id="{{currentType}}">
+			<swiper current="{{currentType}}" duration="300" bindchange="bindChange" style="margin-top: 50px;height:{{swiperHg}}">
+				<swiper-item>
+					<scroll-view scroll-y="true" class="order-list" scroll-with-animation="true" lower-threshold="1" bindscrolltolower="scrolltolower" style="height:100%;">
+						<view class="a-order">
+							<view class="casesleft">
+								<!--左半区-->
+								<block wx:for="{{caseFirstProject}}" wx:for-item="item">
+									<view class='{{item.checked || isCaseProject == item.id ? "case_project case_hover": "case_project"}}' data-index="{{index}}" data-id="{{item.id}}" bindtap="caseproject">
+										{{item.name}}
+										<text class='{{item.checked || isCaseProject == item.id ? "iconfont icon-duihao1": ""}}'>	</text>
+									</view>
+								</block>
+							</view>
+							<scroll-view scroll-y="true" class="caseright">
+								<!--右半区-->
+								<block wx:for="{{caseScondDesc}}" wx:for-item="item">
+									<view class='{{item.checked? "case_desc case_hover": "case_desc"}}' data-index="{{index}}" data-id="{{item.id}}" bindtap="casedesc">
+										{{item.name}}
+										<text class='{{item.checked ? "iconfont icon-duihao1": ""}}'>	</text>
+									</view>
+								</block>
+							</scroll-view>
+						</view>
+					</scroll-view>
+				</swiper-item>
+				<swiper-item>
+					<scroll-view scroll-y="true" class="order-list" scroll-with-animation="true" lower-threshold="1" bindscrolltolower="scrolltolower" style="height:100%;">
+						<view class="a-order">
+							<view class="panel_box">
+								<i-panel title="">
+
+									<picker mode="date" value="{{startDate}}" start="1940-01-01" end="2029-1-23" bindchange="bindDateChange">
+										<i-input type="number" title="开始日期" placeholder="请选择开始日期" maxlength="11" value='{{startDate}}' disabled='disabled' />
+									</picker>
+
+									<picker mode="date" value="{{endDate}}" start="{{inputStartDate}}" end="2029-1-23" bindchange="bindEndDateChange">
+										<i-input type="number" title="截止日期" placeholder="请选择截止日期" maxlength="11" value='{{endDate}}' disabled='disabled' />
+									</picker>
+								</i-panel>
+							</view>
+						</view>
+					</scroll-view>
+				</swiper-item>
+				<swiper-item>
+					<scroll-view scroll-y="true" class="order-list" scroll-with-animation="true" lower-threshold="1" bindscrolltolower="scrolltolower" style="height:100%;">
+						<view class="a-order">
+							<i-input value="{{ startAge }}" title="开始年龄" bind:change="startAgeVerifyFun" placeholder="开始年龄" maxlength="3" />
+							<i-input value="{{ endAge }}" title="结束年龄" bind:change="endAgeVerifyFun" placeholder="结束年龄" maxlength="3" />
+						</view>
+					</scroll-view>
+				</swiper-item>
+				<swiper-item>
+					<scroll-view scroll-y="true" class="order-list" scroll-with-animation="true" lower-threshold="1" bindscrolltolower="scrolltolower" style="height:100%;">
+						<view class="a-order">
+							<i-input value="{{ sname }}" title="姓名" bind:change="nameVerifyFun" placeholder="姓名" maxlength="50" />
+						</view>
+					</scroll-view>
+				</swiper-item>
+			</swiper>
+		</slideTab>
+
+
+		<view class="view_bu" wx:if="{{cqbutton}}">
+			<view class="guanbi" bindtap="guan_bi">
+				关闭
+			</view>
+			<view class="chongzhi" bindtap="chong_zhi">
+				重置
+			</view>
+			<view class="queding" bindtap="que_ding">
+				确定{{passpro?'(约':''}}{{passpro?probably:''}}{{passpro?'人)':''}}
+			</view>
+		</view>
+	</view>
+
+	<!-- 健康清单  wx:if="{{bodyview}}"-->
+	<view class="list_box">
+		<block wx:for="{{dataArray}}" wx:for-item="listgoods" wx:for-index="dataArrayIndex">
+			<view wx:if="{{nodataview}}">
+				<view class="item_box" wx:for="{{listgoods}}" wx:for-item="item" wx:key='id'>
+					<view class="item_box_row">
+						<!-- 循环列表：左图盒子 -->
+						<view class="item_l">
+							<image src="{{item.userImgUrl != null ? item.userImgUrl : '../../../../../images/history.jpg'}}" class="item_img" />
+						</view>
+						<!-- 右边盒子 -->
+						<view class="item_r">
+							<view class="it_row_1">
+								<view class="item_t1">姓名：{{item.name}}</view>
+								<view class="item_t2">{{item.sex == 0 ? '男' : '女'}}</view>
+								<view class="row_2_l">服务时间：{{item.setTime}}</view>
+							</view>
+						
+							<view class="it_row_2"   wx-if="{{dzdisplay}}">
+								<view class="bottom_t1 bo_text" >健康风险数量：<view class="number">{{item.sumItem}}个</view></view>
+								<view class="bottom_t1 bo_text" wx:if="{{item.sumAmount}}">最大价值：<view class="number" >{{item.sumAmount || '--'}}元</view></view>
+									<image src="../../../../../images/phone_call.png" class="phone_call" wx-if="{{item.phone.length > 0 && dzdisplay}}" data-call="{{item.phone}}" bindtap="phoneCall" />
+							 </view>
+						</view>
+					</view>
+					<!-- 下半部分 -->
+					<view class="item_box_row_2">
+						<view class="row_2_r">
+							<view class="operationButton" data-id="{{item.caseId}}" bindtap="downReport">
+								<image class="but_img" src="../image/select.png" />
+								查看报告
+							</view>
+							<view wx-if="{{dzdisplay}}" class="operationButton" data-userImgUrl="{{item.userImgUrl}}" data-userid="{{item.userId}}" data-downadress="{{item.downAdress}}" data-caseId="{{item.caseId}}" data-bid='{{item.bid}}' data-openid='{{item.openid}}' bindtap='loadEdit'>
+								<image class="but_img" src="../image/view.png" />
+								定制服务
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		
+		</block>
+			<view  wx:if="{{!nodataview}}">
+				<image class="nodataImg" mode="widthFix" src='../image/nodata.png'></image>
+			</view>
+	</view>
+</view>
+
+<!-- <button wx:else class="weui-btn" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 微信用户快速获取体检报告</button> -->

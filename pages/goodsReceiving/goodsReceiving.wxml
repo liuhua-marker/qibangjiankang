@@ -1,0 +1,54 @@
+<!-- 健康清单 -->
+<i-message id="message" />
+<view class="main">
+  <scroll-view class="datalistBox">
+    <view class="item_box" wx:for="{{goods}}" wx:key="index" wx:for-item="item" data-id="{{item.id}}">
+      <view wx:for="{{item}}" wx:key="itemindex" wx:for-item="itemitem" data-id="{{itemitem.id}}">
+        <view class="flex_box" wx:if="{{index<1}}">
+          <view class="item_l">
+            <image src='../../../../../images/history.jpg' class="item_img" />
+          </view>
+          <view class="item_r">
+            <view class="it_row_1">
+              <view class="item_t1">{{ itemitem.deviceDTO.deviceName }}</view>
+              <view class="item_t2">×{{item.length}}</view>
+            </view>
+            <view class="it_row_2">{{ itemitem.deviceDTO.returnTime }}{{}}</view>
+            <view class="it_row_3">
+              <view class="del_but" data-id="{{item.id}}" data-index="{{index}}" bindtap="deleteRece">
+                删除扫码
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="Bottom_navigation_bar">
+    <view class="box_b">
+      <image src="../../../../../images/adr.png" class="img" />
+      <picker class="picher" bindchange="bindPickerChange" value="{{dompickindex}}" range="{{array}}">
+        <text class="box_text">发货：{{afadress}}</text>
+      </picker>
+    </view>
+    <view class="img_list">
+      <view class="img_list_box" wx:for="{{images}}" wx:key="*this">
+        <image class="q-image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview" />
+        <image class="img_list_del" src="../../../../../images/delete_1.png" data-idx="{{index}}" bindtap="removeImage" />
+      </view>
+    </view>
+    <view class="box_a">
+      <!-- 未选择地址时： -->
+      <view class="emptyAddress">
+        <picker class="picher" bindchange="bindPickerChange" value="{{dompickindex}}" range="{{array}}">
+          <view class="bnb_l">添加地址</view>
+        </picker>
+        <view class="bnb_r">
+          <view class="r_but r_one" bindtap='continueCargo'>扫码发货</view>
+          <view class="r_but r_two" bindtap="chooseImage" wx:if="{{images.length < 3}}">拍照上传</view>
+          <view class="r_but {{sumGoods!=0&&images.length!=0&&afadress!='未选择发货地址'?'r_two':'r_thr'}}"  catchtap='submitGoods'>发货</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

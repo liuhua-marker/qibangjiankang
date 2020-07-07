@@ -1,0 +1,95 @@
+<!--pages/menuPage/menuPage.wxml-->
+<!-- <wxs module="filter" src="../../utils/filter.wxs"></wxs> -->
+<view class="panel bg_F8">
+	<view class="flexRow select_box">
+		<view class="select_panel">
+			<picker value="{{date}}" range="{{dateList}}" range-key='label' bindchange="PickerChangeDate">
+				<view class="selectDate">
+					<text class="font_14 ">{{dateList[date].label}}</text>
+					<text class="triangle"></text>
+				</view>
+			</picker>
+		</view>
+		<view class="select_panel">
+			<picker value="{{personnel}}" range="{{personnelList}}" range-key='name' bindchange="bindPickerChange">
+				<view class="selectDate">
+					<text class="font_14 ">{{personnelList[personnel].name}}</text>
+					<text class="triangle"></text>
+				</view>
+			</picker>
+		</view>
+	</view>
+	<view class="top_panel">
+		<view class="center_box">
+			<view class="flexRow">
+				<view class="flex_item">
+					<view class="item_top">{{orderNum}}</view>
+					<view class="gray_text">支付订单</view>
+				</view>
+				<view class="flex_item">
+					<view class="item_top">{{totalMoney}}</view>
+					<view class="gray_text">累计金额</view>
+				</view>
+				<view class="flex_item">
+					<view class="item_top">{{total}}</view>
+					<view class="gray_text">合计利润</view>
+				</view>
+
+			</view>
+		</view>
+	</view>
+	<view class="table_panel">
+		<!-- 滑到底部加载 -->
+		<scroll-view style="height:calc(100%);" scroll-y bindscrolltolower='bindscrolltolower'>
+			<view class="load_more" wx:if='{{!items||items.length===0}}'>暂无数据</view>
+		<view wx:else >
+			<view class="flex_top" wx:for="{{items}}" wx:for-item="item" wx:key="index">
+				<view class="flexRow padding_b border_bottom">
+					<view><text class="title_style">{{item.consum_name}}</text><text>{{item.name}}</text></view>
+					<view class="color_red">{{item.status}}</view>
+				</view>
+				<view class="flexRow padding_t">
+					<view><text>成交额：</text><text>{{item.pay_all_value}}元</text></view>
+						<view class="btn_detail" data-proxyId = '{{item.proxy_id}}' data-orderId='{{item.order_id}}' bindtap="showDialog" wx:if='{{!isShow}}'>订单详情</view>
+				</view>
+				<view class="flexRow" wx:if='{{isShow}}'>
+					<view><text>佣金额：</text><text>{{item.sep_value}}元</text></view>
+					<view class="btn_detail" data-proxyId = '{{item.proxy_id}}' data-orderId='{{item.order_id}}' bindtap="showDialog">订单详情</view>
+				</view>
+				<view class="flexRow">
+					<view>{{item.created_time}}</view>
+					
+				</view>
+			</view>
+			<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+			</view>
+		</scroll-view>
+	</view>
+	<!-- 弹框 -->
+	<view class='dialog' catchtouchmove="true" wx:if='{{dialogFlag}}'>
+		<view class="table_panel dialog_panel">
+			<view class="title dilog_title">订单详情 <image bindtap="closeDialog" class="close_style" src="../image/x.png"></image>
+			</view>
+			<view class="flexRow flex_top color_333">
+				<view class="flex_table_item">产品名</view>
+				<view class="flex_table_item">数量</view>
+				<view class="flex_table_item">支付金额</view>
+				<view class="flex_table_item">利润额</view>
+			</view>
+			<!-- 滑到底部加载 -->
+			<scroll-view style="height:calc(100% - 200rpx);" scroll-y bindscrolltolower='bindscrolltolower'>
+			<view class="load_more" wx:if='{{!dialogItems||dialogItems.length===0}}'>暂无数据</view>
+		<view wx:else >
+				<view class="flexRow flex_top" wx:for="{{dialogItems}}" wx:for-item="item" wx:key="index">
+					<view class="flex_table_item font_14 color_666">{{item.product_name}}</view>
+					<view class="flex_table_item font_14 color_666">{{item.product_count}}</view>
+					<view class="flex_table_item font_14 color_666">{{item.pay_all_value}}</view>
+					<view class="flex_table_item font_14 color_666">{{item.sep_value}}</view>
+				</view>
+				<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+
+</view>

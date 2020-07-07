@@ -1,0 +1,84 @@
+<view class="container-box">
+  <view class='container-tip' bindtap="handleDialog">
+    <icon class="icon-small icon" type="info_circle" size="14" color="#fff"></icon>
+    <view class='tip-text'> 祺邦健康目前已开通充值账户：{{noticeBank. bankName}} : {{noticeBank.acountNum}}</view>
+  </view>
+  <view class='container-card'>
+    <view>当前余额（元）</view>
+    <view class='card-body'>
+      <text class='card-mon'>￥{{balance}}</text>
+      <view class='card-re fr' bindtap='recharge'>
+        充值记录
+        <mp-icon icon="arrow" color="#333" size="{{12}}"></mp-icon>
+      </view>
+    </view>
+  </view>
+  <view class="container-body">
+    <view class="page-section">
+      已充值金额:
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label wx:for="{{classify}}" wx:key="index">
+          <input type="number" value="{{item.value}}" bindblur="bindIpt" class="radio {{item.checked ? 'radio-checkerd': ''}}" disabled="{{item.disabled}}" placeholder="{{item.code}}">
+          <radio value="{{item.value}}" checked="{{item.checked}}" color='transparent' />
+          </input>
+        </label>
+      </radio-group>
+    </view>
+    <view class="page-section">
+      <picker bindchange="bindPickerChange" range-key="code" range="{{array}}">
+        <view class="picker">
+          您的支付方式: 
+          <view wx:if="{{bankName.code}}" class="fr">
+            <image style="width: 14px;height: 14px;" mode="aspectFit" src="{{bankName.url}}"></image>
+            {{bankName.code}}
+          </view>
+          <view wx:else class="fr texts">
+            请选择
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="page-section">
+      <picker bindchange="accountPickerChange" value="{{index}}" range-key="acountNum" range="{{bankAccount}}">
+        <view class="picker">
+          您转入账户: 
+          <view wx:if="{{account.acountNum}}" class="fr">{{account.bankName}}{{account.acountNum}}</view>
+          <view wx:else class="fr texts">
+            请选择
+          </view>
+        </view>
+      </picker>
+    </view>
+    <view class="page-section">
+      订单截图（推荐）
+      <!-- 容器 -->
+      <view class='ui_uploader_cell'>
+        <!-- 根据已选择的图片临时路径数组展示图片-->
+        <view class='ui_uploader_item' wx:for="{{uploaderList}}" wx:key="index">
+          <!-- 删除-->
+          <icon class='ui_uploader_item_icon' bindtap='clearImg' data-index="{{index}}" type="clear" size="16" color="red" />
+          <!-- 图片-->
+          <image bindtap='showImg' data-index="{{index}}" src='{{item}}'></image>
+        </view>
+        <!-- 上传按钮+框 -->
+        <view class='ui_uploader' bindtap='upload' wx:if="{{showUpload}}"></view>
+      </view>
+    </view>
+     <view class="page-section">
+      订单流水(选填):
+      <input class="weui-input fr" type="number" maxlength='19'  placeholder="请输入19位订单流水号" value="{{dataSave.voucherType}}" bindblur="voucherType" />
+    </view>
+  </view>
+  <mp-dialog title="充值须知" ext-class="notice-box" mask-closable="{{isTrue}}" show="{{showOneButtonDialog}}" bindbuttontap="tapDialogButton" buttons="{{oneButton}}">
+    <view wx:for="{{notice}}" wx:key="index" class="notice">{{item}}</view>
+    <view class="hr"></view>
+    <view wx:for="{{bankAccount}}" wx:key="index" class="bankAccount">
+      {{item.bankName}} : {{item.acountNum}}
+      <mp-icon data-account="{{item.acountNum}}" icon="copy" color="#f3900e" size="{{12}}" bindtap="copyBankAccount"></mp-icon>
+      <!-- <text class="fr">{{item.userName}}</text> -->
+    </view>
+  </mp-dialog>
+  <view class='container-sub'>
+    <button class="sub-btn" bindtap="sumbmit">提交充值申请</button>
+  </view>
+</view>

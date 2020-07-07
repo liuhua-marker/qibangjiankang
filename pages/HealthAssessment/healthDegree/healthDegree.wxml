@@ -1,0 +1,16 @@
+<view class="container-box">
+  <view wx:if="{{healthFrom}} && {{healthFrom.length !== 0}}" class="card" wx:for="{{healthFrom}}" wx:key="index" data-id="{{item.id}}" bindtap="questionnaire">
+    <view class='img-box fl'>
+      <image src="{{url[index%2]}}" mode="aspectFit" class='img'></image>
+    </view>
+    <view class='card-conter fl'>
+      <view class='conter-title'>{{item.name}}</view>
+      <view class='conter-body'>简介：{{item.intro}}</view>
+    </view>
+    <view class='card-footer'> <image class="img_sty" mode="widthFix" src="../../../images/arr_fff.png"></image></view>
+  </view>
+
+  <view wx:if="{{healthFrom.length === 0}}" class="noRecord">
+    <image src="../../image/nodata.png" mode="widthFix" class="image-noRecord"></image>
+  </view>
+</view>

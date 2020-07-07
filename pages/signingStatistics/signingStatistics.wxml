@@ -1,0 +1,42 @@
+<!--pages/signingStatistics/signingStatistics.wxml-->
+<view class="panel">
+	<view class="btn_group_panel">
+		<view class="btn_group">
+			<view class="btn_group_item {{active0==='0'?'active':''}}" bindtap="hanldClick" data-index="0" data-type='0'>周</view>
+			<view class="btn_group_item {{active0==='1'?'active':''}}" bindtap="hanldClick" data-index="1" data-type='0'>月</view>
+			<view class="btn_group_item {{active0==='2'?'active':''}}" bindtap="hanldClick" data-index="2" data-type='0'>年</view>
+		</view>
+	</view>
+	<view class="canvas_panel">
+			<!-- <view wx:if="{{chartData.length === 0}}" class="no_data">暂无数据</view> -->
+		<ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+	</view>
+	<view class="btn_group_panel">
+		<view class="btn_group">
+			<view class="btn_group_item {{active1==='0'?'active':''}}" bindtap="hanldClick" data-index="0" data-type='1'>累计</view>
+			<view class="btn_group_item {{active1==='1'?'active':''}}" bindtap="hanldClick" data-index="1" data-type='1'>本周</view>
+			<view class="btn_group_item {{active1==='2'?'active':''}}" bindtap="hanldClick" data-index="2" data-type='1'>本月</view>
+		</view>
+	</view>
+	<view class="table_panel">
+		<view class="flexRow flex_top color_333">
+			<view class="flex_table_item">签约类型</view>
+			<view class="flex_table_item">签约数量</view>
+		</view>
+		<!-- 滑到底部加载 -->
+		<scroll-view style="height:calc(100% - 100rpx);" scroll-y bindscrolltolower='bindscrolltolower'>
+			<block>
+				<view wx:if="{{items.length === 0}}" class="no_data">暂无数据</view>
+			<view class="flexRow flex_top" bindtap="showDialog" wx:for="{{items}}" wx:for-item="item" wx:key="index">
+				<view class="flex_table_item font_14 color_666">{{item.remark}}</view>
+				<view class="flex_table_item font_14 color_red">{{item['shop_num']}}</view>
+				<!-- <view class="flex_table_item font_14 {{filter.indexOf(item.rate,'+')>-1?'color_red':'color_blue'}}">{{item.rate}}
+					<image class="arrow_style" src="../../images/menuPage/arrow.png"></image>
+				</view> -->
+			</view>
+			</block>
+		
+			<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+		</scroll-view>
+	</view>
+</view>

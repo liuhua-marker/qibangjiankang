@@ -1,0 +1,71 @@
+/* pages/appointmentStart/appointmentStart.wxss */
+page,.panel{
+  height: 100%;
+  background: #F5F5F5;
+}
+
+.flex_panel{
+  display:flex;
+  padding:26rpx 30rpx; 
+  border-bottom: 1px solid #dcdcdc;
+  font-size: 32rpx;
+}
+.flex_panel>view{
+  flex-grow: 1;
+  /* text-align: center; */
+}
+.placceholder{
+  color:#999;
+  font-size: 32rpx;
+}
+.text_right{
+  text-align: right;
+  color:#666;
+  line-height: 45rpx;
+}
+.drop_img{
+  width: 30rpx;
+  /* float: right; */
+  /* transform: rotate(90deg); */
+  margin-left: 20rpx;
+  vertical-align: middle;
+}
+.border_none{
+  border:none
+}
+.time_box{
+  font-size: 32rpx;
+  color:#666;
+  padding:20rpx 10rpx;
+  border:1px solid #666;
+  display: inline-block;
+  border-radius: 5rpx;
+}
+.flex_row_3{
+  flex-wrap: wrap;
+}
+.flex_row_3>view{
+  width: 33%;
+  text-align: center;
+  flex-grow:0;
+  margin-bottom:30rpx;
+}
+.active{
+  border-color: #BD4044;
+  background-color: #BD4044;
+  color: #fff;
+}
+.btn_style{
+  position: fixed;
+  bottom:30rpx;
+  left: 40rpx;
+  right:40rpx;
+  display: block;
+  background: #BD4044;
+  font-size: 34rpx;
+  line-height: 100rpx;
+  z-index: 100;
+  color:#fff;
+  border-radius: 100rpx;
+  text-align: center;
+}

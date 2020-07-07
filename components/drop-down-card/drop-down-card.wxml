@@ -1,0 +1,36 @@
+<!--components/drop-down-card/drop-down-card.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<!-- <view wx:for="{{listData}}" wx:for-item="item" wx:key="index" wx:for-index="index"> -->
+<view>
+	<view class="drop_top {{noBorder}}" bindtap="dropDown" data-speechcraft='{{listData.speechcraftPackagePlanEntities[0]}}'>
+		<text>{{listData.name ||listData.speechcraftPackagePlanEntities[0].name || listData.speechName || '--'}}</text>
+		<image class="drop_img {{isShow?'transfrom_90':''}}" mode="widthFix" src="../../images/menuPage/arrow2.png"></image>
+		<!-- <view  wx:if='{{tabIndex==="3"}}' class="drop_top_text"><text>合格人数：10</text><text style="padding-left:30rpx">不合格人数：5</text></view> -->
+	</view>
+	<block wx:if='{{isShow}}'>
+		<!-- <block  wx:if='{{isShow[index]}}'> -->
+		<view  class="drop_content {{noShadow}}" wx:for='{{speechcraftRuleEntityList}}' wx:for-item="speechItem" wx:key="speechId">
+			<slot name='slot'></slot>
+			<block wx:if='{{!addSlot}}'>
+				<view class="content_title">{{speechItem.name || speechItem.speechName }}</view>
+				<view class="content_box"> {{speechItem.remarks}}</view>
+				<view class="flex_row">
+					<view>训练类型：<text class="color_blue">{{practiseType[speechItem.practiseType] || practiseType[speechItem.trainType]}}</text></view>
+					<view>训练次数：<text class="color_blue">{{speechItem.practiseCount || speechItem.trainCount}} 次</text></view>
+					<block wx:if='{{tabIndex==="2" ||tabIndex==="3"}}'>
+						<view>已读总次数：<text class="color_blue">{{practiseType[speechItem.practiseType] || speechItem.trainAllCount}} 次</text></view>
+						<view>合格总次数：<text class="color_blue">{{speechItem.practiseCount || speechItem.trainSuccessCount}} 次</text></view>
+						<view>训练总次数：<text class="color_blue">{{speechItem.trainedCount}} 次</text></view>
+					</block>
+				</view>
+				<view class="flexRow font_26" wx:if='{{tabIndex==="2" ||tabIndex==="3"}}'>
+					<view>开始时间：{{filter.formatterTime(speechItem.startTime)}}</view>
+					<view>结束时间：{{filter.formatterTime(speechItem.endTime)}}</view>
+				</view>
+			</block>
+
+		</view>
+	</block>
+
+
+</view>

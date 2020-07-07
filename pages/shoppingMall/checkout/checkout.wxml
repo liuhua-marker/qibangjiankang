@@ -1,0 +1,93 @@
+<view>
+    <view class="address-box">
+        <view class="address-item" bindtap="selectAddress" wx:if="{{address}}">
+            <view class="l">
+                <text class="name">{{address.name}}</text>
+                <text class="default" wx:if="{{address.isdefault =='y'}}">默认</text>
+            </view>
+            <view class="m">
+                <text class="mobile">{{address.phone}}</text>
+                <text class="address">{{address.province}}{{address.city}}{{address.area?address.area:''}}{{address.address}}</text>
+            </view>
+            <view class="r">
+                <image mode="widthFix" src="../../../images/menuPage/arrow.png"></image>
+            </view>
+        </view>
+        <view class="address-item address-empty" bindtap="addAddress" wx:if="{{!address}}">
+            <view class="m">
+               还没有收货地址，去添加
+            </view>
+            <view class="r">
+                <image mode="widthFix" src="../../../images/menuPage/arrow.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="goods-items">
+        <view class="item"  wx:for="{{productList}}" wx:key="id">
+          
+          <view class='proBox'>
+              <view class="img">
+                  <image src="{{item.imgUrl}}"></image>
+              </view>
+              <view class="info"> 
+                  <view class='proName'>{{item.productName || ''}}</view>
+                  <view class="m">{{item.specInfo||''}}</view>
+                  <view class="number">x{{item.number || 1}}</view>
+                  <view class="price">￥{{item.userPrice || '0.00'}}</view>
+              </view>
+          </view>
+          <!--
+          <view class="coupon-box" data-merid="{{item.merchantId}}" data-price="{{item.orderTotalPrice}}" bindtap='tapCoupon'>
+            <view class="coupon-item">
+              <view class="l">
+                  <text class="name">请选择优惠券</text>
+                  <text class="txt">{{item.couponName?item.couponName:'不使用优惠卷'}}</text>
+              </view>
+              <view class="r">
+                  <image src="/static/images/address_right.png"></image>
+              </view>
+            </view>
+          </view>
+          -->
+        </view> 
+
+      <view class="order-box"> 
+          <view class="order-item"  wx:if="{{wattel&&wattel.amount>0}}">
+              <view class="l">
+                  <text class="name">积分余额</text>
+              </view>
+              <view class="r">
+                  <text class="txt">￥{{wattel.amount}}</text>
+              </view>
+          </view>
+          <view class="order-item">
+              <view class="l">
+                  <text class="name">优惠券</text>
+              </view>
+              <view class="r">
+                  <text class="txt">￥{{item.couponPrice? -item.couponPrice: 0}}</text>
+              </view>
+          </view>
+          <view class="order-item">
+              <view class="l">
+                  <text class="name">运费</text>
+              </view>
+              <view class="r">
+                  <text class="txt">￥{{expressFee}}</text>
+              </view>
+          </view>
+          <view class="order-item">
+              <view class="l">
+                  <text class="name">商品合计</text>
+              </view>
+              <view class="r">
+                  <text class="txt">￥{{amount}}</text>
+              </view>
+          </view>
+        </view>
+      </view> 
+    <view class="order-total">
+        <view class="l">实付：￥{{amount}}</view>
+        <button class="r" disabled="{{isY}}" bindtap="submitOrder">去付款</button>
+    </view>
+</view>

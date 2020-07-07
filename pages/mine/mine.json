@@ -1,0 +1,10 @@
+
+{
+  "navigationBarTitleText": "个人中心",
+  "usingComponents": {
+    "i-message": "../../iview/message/index"
+  },
+  "usingComponents2": {
+    "i-input": "../../iview/input/index"
+  }
+}

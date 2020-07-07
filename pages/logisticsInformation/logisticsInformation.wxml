@@ -1,0 +1,28 @@
+
+<view class="content">
+  <view class="loginstics_panel">
+  <view class="flex_panel"><view class="left_text">物流公司</view><view class="right_text">{{deliveryName}}</view></view>
+  <view class="flex_panel"><view class="left_text">运单号码</view><view class="right_text">{{postId}}</view><image bindtap="copy" class="copy_img" mode="widthFix" src='../../images/mall/allorder.png'></image></view>
+  </view>
+  <view class="listview-container">
+  <block wx:for="{{newsList}}" wx:key="time">
+
+    <view class="playlog-item" bindtap="itemTapped">
+    <view class="time_panel">
+        <text class="course">{{item.time}}</text>
+              </view>
+      <view class="dotline">
+        <!-- 竖线 -->
+        <view class="line"></view>
+        <!-- 圆点 -->
+        <view class="dot"></view>
+        <!-- 时间戳 -->
+      </view>
+      <view class="content">
+        <!-- <text class="course">{{item.time}}</text> -->
+        <text class="chapter">{{item.context}}</text>
+      </view>
+    </view>
+  </block>
+</view>
+</view>

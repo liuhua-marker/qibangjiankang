@@ -1,0 +1,33 @@
+<!--pages/personal/personal.wxml-->
+
+<view class='panel-m20'>
+  <view class='userInfo'>
+    <view class='userAvatar'>
+      <i-avatar src="{{userInfo.avatarUrl}}" size="large"></i-avatar>
+    </view>
+    <view class='userName'>姓名：{{userName}}</view>
+    <view class='userName2'></view>
+  </view>
+ 
+</view>
+
+<view class='panel-m20'>
+  <i-cell-group>
+      <i-cell data-type="0" bindtap='registerLog' title="治疗记录">
+          <i-icon slot="icon" type="document" size="28" color="#1498d9" />
+      </i-cell>
+      <!-- <i-cell data-type="2" bindtap='registerLog' title="门诊缴费记录">
+          <i-icon slot="icon" type="coupons" size="28" color="#1498d9" />
+      </i-cell> -->
+      <i-cell data-type="3" bindtap='registerLog' title="消费缴费记录">
+          <i-icon slot="icon" type="task" size="28" color="#1498d9" />
+      </i-cell>
+  </i-cell-group>
+</view>
+<view class='panel-m20'>
+  <i-cell-group>
+      <i-cell title="我的收藏" is-link url="../collect/collect?type=0">
+          <i-icon slot="icon" type="collection_fill" size="28" color="#1498d9" />
+      </i-cell>
+  </i-cell-group>
+</view>

@@ -1,0 +1,18 @@
+.container-box{background-color: #efeff4;height: 100vh;font-size:32rpx; text-align: center;}
+.container-icon {
+  width: 100%;
+  padding: 40rpx 0;
+}
+.container-by {
+  font-size: 70rpx;
+  padding: 20rpx 0;
+  margin-bottom: 40rpx;
+}
+.container-but {
+  width: 88%;
+  font-size: 28rpx;
+  background-color: #bd4044;
+  color: #fff;
+  margin-bottom: 40rpx;
+  box-shadow: 0rpx 2rpx 20rpx 6rpx rgba(97, 23, 1, 0.4);
+}

@@ -1,0 +1,130 @@
+/* pages/salesAnalysis/salesAnalysis.wxss */
+page {
+  height: 100%;
+}
+
+.panel {
+  height: 100%;
+}
+
+.top_panel {
+  height: 200rpx;
+}
+
+.center_box {
+  padding: 20rpx;
+  top: 60rpx;
+}
+
+.item_top {
+  padding: 0 0 10rpx 0;
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #BD4044;
+  max-height: 100%;
+  word-break: break-all
+}
+
+.left_box {
+  text-align: left;
+}
+
+.gray_text {
+  color: #666;
+  font-size: 26rpx;
+}
+
+.money_style {
+  font-size: 28rpx;
+  font-weight: normal;
+}
+
+.color_666 {
+  color: #666;
+  vertical-align: middle;
+}
+
+.font_14 {
+  font-size: 28rpx;
+}
+
+.title {
+  text-align: center;
+  font-size: 34rpx;
+  color: #333;
+  height: 80rpx;
+}
+
+.table_panel {
+  margin: 0 30rpx;
+  border-radius: 20rpx;
+  height: calc(100% - 370rpx);
+  background: #fff;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.flex_top {
+  font-size: 34rpx;
+  border-bottom: 1px solid #DCDCDC;
+}
+
+.flex_table_item {
+  width: 33.3%;
+  line-height: 100rpx;
+}
+
+.flex_table_title {
+  width: 100%;
+  text-align: left;
+  padding-left: 30rpx;
+}
+
+.arrow_style {
+  width: 14rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  margin: 36rpx 30rpx 0 0;
+  float: right;
+}
+
+.btn_group_panel {
+  padding: 30rpx;
+}
+
+.table_title {
+  border-left: 2px solid #FF6C00;
+  padding: 0 0 0 20rpx;
+}
+
+.flex_table_ex {
+  font-size: 26rpx;
+  color: #666;
+  text-align: left;
+  padding: 30rpx 30rpx 0 30rpx;
+}
+
+.flex_style{
+  border-bottom: 1px solid #DCDCDC;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  padding: 20rpx;
+  text-align: left;
+  color: #666;
+  font-size: 26rpx;
+}
+.padding_b{
+  padding-bottom: 15rpx;
+}
+.title_style{
+  color:#333;
+  font-size: 30rpx;
+  margin-right: 20rpx;
+}
+.color_999{
+  color:#999
+}
+.font_34{
+  font-size: 34rpx;
+}

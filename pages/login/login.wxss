@@ -1,0 +1,36 @@
+/* pages/mine/mine.wxss */
+@import "../template/template.wxss";
+
+page {
+  background: #ffffff;
+}
+.weui-btn {
+  color:#ffffff;
+  background-color: #179B16;
+  width: 80%;
+  height: 100rpx;
+  position: relative;
+  margin: 25px auto;
+}
+.welcome{
+  position: relative;
+  margin: 100rpx 0px 10rpx 10%;
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+  letter-spacing: 1px
+}
+.shou_quan{
+  position: relative;
+  margin: 50rpx 0px 10rpx 10%;
+  font-size: 13px;
+  font-weight: 500;
+  color: black;
+}
+.user_data{
+  position: relative;
+  margin: 10rpx 0px 10rpx 10%;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgb(105, 105, 105);
+}

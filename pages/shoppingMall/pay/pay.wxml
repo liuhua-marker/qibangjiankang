@@ -1,0 +1,33 @@
+<view class="container">
+    <view class="total">
+      <view class="label">订单金额</view>
+      <view class="txt">{{updateAmount}}元</view>
+    </view>
+    <view class="total">
+      <view class="label">剩余积分</view>
+      <view class="txt">{{amount}}元</view>
+    </view>
+    <view class="pay-list">
+        <view class="h">{{sendPhone}}</view>
+        <view class="b">
+            <!--<view class="item">
+                <view class="checkbox checked"></view>
+                <view class="icon-alipay"></view>
+                <view class="name">支付宝</view>
+            </view>
+            <view class="item">
+                <view class="checkbox"></view>
+                <view class="icon-net"></view>
+                <view class="name">网易支付</view>
+            </view>-->
+            <view class="item validate-code" >
+                 <input  bindinput='setCodeValue'  class="input"  placeholder="请输入验证码" value="" auto-focus/>
+                <view class="restCodeDit" wx:if="{{second>0}}" >{{second}}秒</view>
+                <view class="restCode" wx:else bindtap="validate">获取验证码</view>
+            </view>
+        </view>
+    </view>
+    <view class="tips">请点击获取验证码后确认方可支付</view>
+
+    <view class="pay-btn" bindtap="addPay">确定</view>
+</view>

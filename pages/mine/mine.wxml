@@ -1,0 +1,114 @@
+<!-- pages/mine/mine.wxml -->
+<!-- 头部 -->
+<i-message id="message" />
+<view class='mine_info'>
+  <image class='mine_banner' src='../../../../../images/bg.png'></image>
+  <view class="head_one">
+    <view class="head_img_box">
+
+    <view >
+			<!-- <button  wx:if="{{!hasUserInfo }}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="change_button" > 微信登录 </button> -->
+      <image  wx:if="{{!hasUserInfo }}" class='userimg' src='https://health.qbjiankang.com/icon/userimg.png'></image>
+       <open-data  wx:else type="userAvatarUrl" class="Head_1"></open-data>
+		</view>	
+    </view>
+    <view class="head_name">
+      <view class="h_t_1">
+        <view wx:if="{{canIUse}}">
+           <button  wx:if="{{!hasUserInfo }}"  open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="change_button" > 微信登录 </button> 
+            <open-data  wx:else type="userNickName" lang="zh_CN" class="name_text"></open-data>
+        </view>	
+          <view wx:else>请升级微信版本</view>
+      </view>
+      <view class="h_t_2">欢迎使用</view>
+    </view>
+
+ 
+
+  </view>
+  <view class='mine_info_head'>
+    <view class='mine_head_left' bindtap='info'>
+      
+      <image class='mine_head_leftPic' src='../../../../../images/mine/news.png'></image>
+      <!--<view class='mine_head_leftDes'>消息</view> -->
+    </view>
+    <view class='jiange'></view>
+    <view class='mine_head_right' bindtap='addr'>
+      <image src='../../../../../images/mine/adr.png' class='mine_head_rightPic'></image>
+      <!-- <view class='mine_head_rightDes'>地址</view> -->
+    </view>
+    <view class='jiange'></view>
+    <!-- 未设置点击事件 -->
+    <view class='mine_head_right'>
+      <image src='../../../../../images/mine/strar.png' class='mine_head_rightPic'></image>
+      <!-- <view class='mine_head_rightDes'>收藏</view> -->
+    </view>
+  </view>
+</view>
+<!-- 内容 -->
+<view class='list_content'>
+  <!-- <view class='list' bindtap='restMoney'>
+    <view class='list_left'>
+      <image class='listIcon' src='../../../../../images/mine/fee.png'></image>
+      <view class='listName'>套盒余额</view>
+    </view>
+    <image src='../../../../../images/jiantou.png' class='jiantou'></image>
+  </view> -->
+  <!-- <view class='list' bindtap='realName'>
+    <view class='list_left'>
+      <image class='listIcon' src='../../../../../images/mine/name.png'></image>
+      <view class='listName'>实名认证</view>
+    </view>
+    <view class='list_right'>
+      <view class='check'>选填</view>
+      <image src='../../../../../images/jiantou.png' class='jiantou'></image>
+    </view>
+    
+  </view> -->
+  <view class='list' bindtap="myMoney" wx:if="{{isShowMoney}}">
+    <view class='list_left'>
+      <image class='listIcon' src='../../../../../images/mine/fee.png'></image>
+      <button id='haoyoufenxiang' type='warn' size="mini" plain="true">我的钱包</button>
+    </view>
+    <image src='../../../../../images/feedback.png' class='jiantou'></image>
+  </view>
+  <view class='list'>
+    <view class='list_left'>
+      <image class='listIcon' src='../../../../../images/mine/share.png'></image>
+      <!-- <view class='listName'>好友分享</view> -->
+      	
+      <button id='haoyoufenxiang' open-type='share' type='warn' size="mini" plain="true">好友分享</button>
+    </view>
+    <image src='../../../../../images/jiantou.png' class='jiantou'></image>
+  </view>
+  <!-- <view class='list' bindtap="toMonthly">
+    <view class='list_left'>
+      <image class='listIcon' src='../../../../../images/mine/feedback.png'></image>
+      <button id='haoyoufenxiang' type='warn' size="mini" plain="true">月租扣费</button>
+    </view>
+    <image src='../../../../../images/jiantou.png' class='jiantou'></image>
+  </view> -->
+  <!-- <view class='list' bindtap="view">
+    <view class='list_left'>
+      <image class='listIcon' src='../../../../../images/mine/feedback.png'></image>
+      <view class='listName'>意见反馈</view>
+    </view>
+    <image src='../../../../../images/jiantou.png' class='jiantou'></image>
+  </view> -->
+</view>
+
+<template is="rexian" />
+<!-- 遮罩层 -->
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<!-- 弹出层 -->
+<view class="modalDlg" wx:if="{{showModal}}">
+  <text style='font-size:39rpx;font-weight:bold;padding-top:50rpx;'>身份切换</text>
+  <!-- 服务列表页中的单选框 -->
+  <radio-group class="radio-group" bindchange="getGenderChange" style="padding: 20rpx;width: 90%;">
+    <label class="radio" wx:for="{{userRolelist}}" wx:for-item="list" wx:key="index" class="rolelable">
+      <radio value="{{list.userRole}}" checked="{{list.checked}}" class="roleradio" />
+      <view class="roleview">{{list.roleName}}</view>
+    </label>
+  </radio-group>
+  <view bindtap="ok" class="ok">确定</view>
+</view>

@@ -1,0 +1,478 @@
+/* pages/goods/goods.wxss */
+page {
+  background: #ededed;
+  height: 100%;
+  /* padding-bottom: 88rpx; */
+  /* position: relative; */
+}
+
+.swiper-tab {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* margin-top: 2rpx; */
+  text-align: center;
+  line-height: 88rpx;
+  height: 88rpx;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+}
+
+.kong {
+  width: 100%;
+  height: 90rpx;
+}
+
+.kong2 {
+  width: 100%;
+  height: 176rpx;
+}
+
+.tab-item {
+  width: 50%;
+  height: 100%;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #999999;
+}
+
+.active {
+  color: #3d4663;
+  border-bottom: 2rpx solid #3d4663;
+}
+
+.show {
+  box-sizing: border-box;
+  padding: 31.875rpx;
+  display: block
+}
+
+.hidden {
+  display: none;
+}
+
+.list {
+  width: 94%;
+  height: 168rpx;
+  margin: 16rpx auto;
+  background: #ffffff;
+  border-radius: 8rpx;
+}
+
+.list_top {
+  width: 100%;
+  height: 153rpx;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden
+}
+
+.numAndTime {
+  width: 514rpx;
+  height: 118rpx;
+  margin: 30rpx 0 0 30rpx;
+  display: flex;
+}
+
+.numInfo {
+  width: 514rpx;
+  height: 98rpx;
+  font-size: 32rpx;
+  color: #3d4663;
+}
+
+.numPic {
+  width: 130rpx;
+  height: 108rpx;
+  display: block;
+  margin: 0 14rpx 0 0;
+  float: left
+}
+
+.num {
+  font-weight: bold;
+  /* float: left */
+}
+
+.time {
+  line-height: 24rpx;
+  font-size: 24rpx;
+  margin-top: 40rpx;
+  color: #999999;
+}
+
+.hr {
+  width: 90%;
+  height: 1rpx;
+  background: #e6e6e6;
+  margin: auto;
+}
+
+.state {
+  width: 140rpx;
+  height: 54rpx;
+  background: #3d4663;
+  font-size: 26rpx;
+  line-height: 54rpx;
+  text-align: center;
+  color: #ffffff;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  margin-top: 34rpx;
+}
+
+.loadBtn {
+  width: 392rpx;
+  height: 54rpx;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin: 30rpx 26rpx 0 0;
+}
+
+.see_btn {
+  width: 160rpx;
+  height: 50rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.see_btn::after {
+  border: none
+}
+
+.edit_btn {
+  width: 200rpx;
+  height: 50rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.edit_btn::after {
+  border: none
+}
+
+.inBtn {
+  width: 540rpx;
+  height: 54rpx;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin: 30rpx 26rpx 0 0;
+}
+
+.extend_btn {
+  width: 160rpx;
+  height: 50rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.extend_btn::after {
+  border: none
+}
+
+.goBack_btn {
+  width: 160rpx;
+  height: 50rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.goBack_btn::after {
+  border: none
+}
+
+.outBtn {
+  width: 352rpx;
+  height: 54rpx;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin: 30rpx 26rpx 0 0;
+}
+
+.confirm_btn {
+  width: 160rpx;
+  height: 50rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.confirm_btn::after {
+  border: none
+}
+
+.finishBtn {
+  width: 352rpx;
+  height: 54rpx;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin: 30rpx 26rpx 0 0;
+}
+
+.del_btn {
+  width: 160rpx;
+  height: 50rpx;
+  display: block;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 25rpx;
+  border: 1rpx solid #e6e6e6;
+}
+
+.del_btn::after {
+  border: none
+}
+
+.rexian {
+  width: 100%;
+  height: 88rpx;
+  bottom: 0;
+  left: 0
+}
+
+.tel {
+  width: 100%;
+  height: 88rpx;
+  font-size: 24rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #666666
+}
+
+.kefu {
+  width: 200rpx;
+  height: 54rpx;
+  background: #aaaaaa;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  position: fixed;
+  bottom: 20rpx;
+  right: 0;
+  display: flex;
+  justify-content: space-around
+}
+
+.kufu_pic {
+  width: 32rpx;
+  height: 34rpx;
+  display: block;
+  margin: 10rpx 0 0 26rpx;
+}
+
+.kefu_describe {
+  width: 102rpx;
+  height: 54rpx;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  color: #ededed;
+}
+
+.guanli {
+  position: fixed;
+  top: 88rpx;
+  left: 0;
+  width: 100%;
+  height: 86rpx;
+  background: #ffffff;
+  z-index: 999;
+}
+
+.guanliMain {
+  width: 94%;
+  height: 86rpx;
+  margin: auto;
+  /* display: flex;
+  justify-content: space-between; */
+  overflow: hidden;
+}
+
+.checkbox_all {
+  font-size: 24rpx;
+  color: #333333;
+  line-height: 86rpx;
+  float: left;
+}
+
+.guanli_btn {
+  width: 88rpx;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  line-height: 24rpx;
+  margin-top: 28rpx;
+  float: right;
+}
+
+.guanli_pic {
+  width: 22rpx;
+  height: 24rpx;
+}
+
+.guanli_word {
+  font-size: 24rpx;
+  color: #3d4663;
+}
+
+.checkbox_list {
+  display: flex;
+}
+
+checkbox .wx-checkbox-input {
+  border-radius: 3rpx;
+  height: 26rpx;
+  width: 26rpx;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  background: #3d4663;
+  color: #ffffff;
+  border: none;
+}
+
+.checkbox {
+  margin: 106rpx 20rpx 0 24rpx;
+}
+
+.on {
+  display: block
+}
+
+.none {
+  display: none
+}
+
+.huishou {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 78rpx;
+  background: #ffffff;
+  border-top: 2rpx solid #dbdbdb;
+  z-index: 9;
+}
+
+.huishouBtn {
+  width: 196rpx;
+  height: 78rpx;
+  font-size: 22rpx;
+  color: #ffffff;
+  background: #3d4663;
+  border-radius: 0;
+  text-align: center;
+  line-height: 78rpx;
+  float: right;
+}
+
+/* 列表样式 */
+
+.item_box {
+  margin-bottom: 28.125rpx;
+  min-height: 200.625rpx;
+  box-sizing: border-box;
+  padding: 20.625rpx;
+  display: flex;
+  background-color: #fff;
+  border-radius: 20.625rpx;
+}
+
+.item_l {
+  flex-shrink: 0;
+  margin-right: 22.5rpx;
+  border-radius: 20.625rpx;
+  overflow: hidden;
+}
+
+.item_r {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item_img {
+  height: 157.5rpx;
+  width: 251.25rpx;
+  display: block;
+}
+
+.it_row_1 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item_t1 {
+  display: -webkit-box;
+  /**对象作为伸缩盒子模型展示**/
+  -webkit-box-orient: vertical;
+  /**设置或检索伸缩盒子对象的子元素的排列方式**/
+  -webkit-line-clamp: 2;
+  /**显示的行数**/
+  overflow: hidden;
+  /**隐藏超出的内容**/
+
+  font-size: 26.25rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.bold {
+  font-size: 36.875rpx;
+  font-weight: bold;
+}
+
+.item_t2,
+.it_row_2 {
+  font-size: 20.625rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+}
+
+.it_row_3 {
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.del_but {
+  display: flex;
+  align-items: center;
+  height: 39.375rpx;
+  border: 1px solid rgba(218, 182, 143, 1);
+  border-radius: 18.75rpx;
+  font-size: 20.625rpx;
+  padding: 0rpx 13.125rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: rgba(218, 182, 143, 1);
+}

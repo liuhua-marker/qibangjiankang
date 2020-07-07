@@ -1,0 +1,28 @@
+<view class="container-box">
+  <view class="container-head">{{intro}}</view>
+  <view class="panel">
+    <view class="container-bar">
+    <view class="progress-text" style="color:rgba(189, 64, 68, 1)">{{page}}</view>
+    <progress percent="{{percent}}" stroke-width="5" border-radius="5" color="rgba(189, 64, 68, 1)"/>
+    <view class="progress-text">{{total}}</view>
+  </view>
+  <view class="container-body">
+    <view class="body-title">{{subject.title}}</view>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label wx:for="{{subject.qbEvalOptionVoList}}" wx:key="index">
+        <view class="radio {{item.select ? 'radio-checkerd': ''}}">
+          <radio value="{{item.option}}" checked="{{item.select}}" hidden="true" /> {{item.option}}
+        </view>
+      </label>
+    </radio-group>
+  </view>
+  </view>
+  <view class="container-button">
+    <button wx:if="{{page > 1}}" bindtap="lastQuestion" class="buttons btn_plain" plain>上一题</button>
+    <!-- <button bindtap="lastQuestion" class="buttons">上一题</button> -->
+    <button wx:if="{{page < total}}" class='fr buttons' type="warn" disabled='{{disabled}}' bindtap="nextQuestion">下一题</button>
+    <button type="warn"  wx:if="{{page === total}}" class='fr buttons btn_organ' disabled='{{disabled}}' bindtap="questionResult">{{questionBtn}}</button>
+    <!-- <button wx:if="{{page === total && evalType === 2}}" type="primary" class='fr' disabled='{{disabled}}' bindtap="questionSuccess">完成
+    </button> -->
+  </view>
+</view>

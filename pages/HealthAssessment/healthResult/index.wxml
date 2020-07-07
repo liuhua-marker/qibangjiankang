@@ -1,0 +1,31 @@
+<view class="container-box">
+	<view class="no_data" wx:if="{{healthResult.qbEvalResultVoList.length === 0}}">暂未发现身体风险，请继续保持哦~</view>
+	<view class="box" wx:else>
+		<view class="top_text">本次测评的属于:</view>
+		<view class="conten_panel">
+			<view class="tips_text">
+				<image src="../../../images/small.png" mode="widthFix" class="small_sty"></image> 温馨提示： 一个人是可以同时出现多种体质的哦~~
+			</view>
+			<view wx:for="{{healthResult.qbEvalResultVoList}}" wx:key="index" class="conten_box">
+				<view class="health-title">{{item.evalLableName}}
+					<view class="line"></view>
+				</view>
+				<view>
+				<view class="title_sty">	<image  style="margin-right:20rpx" src="../../../images/like.png" mode="widthFix" class="small_sty"></image>调养方式</view>
+				<view class="mode-connater border_b">{{item.evalNursingWay}}</view>
+				</view>
+				<view class="health-body">
+					<view class="title_sty">	<image  style="margin-right:20rpx" src="../../../images/jy.png" mode="widthFix" class="small_sty"></image>建议指导</view>
+					<view class="mode-connater">{{item.evalAdviceGuide}}</view>
+				</view>
+			</view>
+		</view>
+
+
+
+	</view>
+	<view class="btns">
+		<button class="btn fl" type="primary" bindtap="reevaluation">重新测评</button>
+		    <button bindtap="backHome" class="fr btn btn_plain" plain>返回首页</button>
+	</view>
+</view>

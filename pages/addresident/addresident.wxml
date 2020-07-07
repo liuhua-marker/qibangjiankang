@@ -1,0 +1,16 @@
+<!--pages/addresident/addresident.wxml-->
+<view class='toptext'>
+  <text>
+ 通过健康码号快速添加
+  </text>
+</view>
+
+<i-panel title="">
+    <i-input value="{{ value1 }}" title="顾客姓名" autofocus placeholder="请输入顾客姓名" />
+    <i-input value="{{ value1 }}" title="消费单号" autofocus placeholder="请输入消费号" />
+    <i-input value="{{ value2 }}" title="身份证号码" placeholder="请输入身份证号码" />
+
+    <view class='panel-p30'>
+      <i-button bind:click="handleClick" type="primary" >确认添加</i-button>
+    </view>
+</i-panel>

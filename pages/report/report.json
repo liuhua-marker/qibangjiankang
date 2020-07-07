@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "健康档案",
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#bd4044",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "i-message": "../../iview/message/index",
+    "slideTab": "../../components/navreport/index"
+  },
+  "usingComponents2": {
+    "i-input": "../../iview/input/index"
+  }
+}

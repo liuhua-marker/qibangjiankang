@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "货物详情",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#bd4044",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh":true
+}

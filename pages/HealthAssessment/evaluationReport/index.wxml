@@ -1,0 +1,29 @@
+<view class="container-box ">
+	<view wx:if="{{storeId}}" class="search bg_F8">
+		<view class="search-box">
+			<!-- <mp-icon icon="search" color="black" class="search_icon"></mp-icon> -->
+			<image class="search_icon" mode="widthFix" src="../../../images/menuPage/search.png"></image>
+			<input class="weui-input " bindinput="changeInput" bindconfirm="search" confirm-type="search" placeholder="请输入名称进行搜索" />
+		</view>
+		<view bindtap="search" class="search_text">搜索</view>
+	</view>
+	<view class="container-body">
+		<view wx:if="{{!healthResult || healthResult.length ===0}}" class="no_data"> 暂无测评报告</view>
+		<block wx:else>
+			<view class="content_box" wx:for="{{healthResult}}" wx:key="index" data-index="{{index}}" bindtap="healthResult">
+				<view class="body" >
+					<view class="body-head">
+						<text>{{item.evalName}}</text>
+						<view class="proTel body-prop">{{item.nickName}}</view>
+						<!-- <view class="proTel body-tel">{{item.evalResultLableId}}</view> -->
+					</view>
+					<view class="body-by">
+						<text>测评时间: {{item.evalTime}}</text>
+					</view>
+				</view>
+        <image class="arror_sty" mode="widthFix" src="../../../images/menuPage/arrow2.png"></image>
+			</view>
+		</block>
+
+	</view>
+</view>

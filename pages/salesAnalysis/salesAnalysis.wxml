@@ -1,0 +1,64 @@
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class="panel bg_F8">
+	<!-- <image class='mine_banner' mode="widthFix" src='../../../../../images/bg.png'></image> -->
+	<view class="top_panel">
+		<view class="center_box flexRow">
+			<view class="flex_item left_box">
+				<view class="item_top">￥{{totalMoney}} <text class="money_style">元</text></view>
+				<view class="gray_text">累计交易{{total}}笔，累计交易额</view>
+			</view>
+			<view class="center_item flex_item">
+				<picker mode="date" fields="month" value="{{date}}" start="2016-01-01" bindchange="getDateTime">
+					<view class="selectDate">
+						<text class="font_14 color_666">{{years}}年{{months}}月</text>
+						<text class="triangle"></text>
+					</view>
+				</picker>
+			</view>
+		</view>
+	</view>
+	<view class="title"><text class="line_style">业绩销售统计表</text></view>
+	<view class="table_panel">
+		<view class="flexRow flex_top color_333">
+			<view class="flex_table_item">业务类型</view>
+			<view class="flex_table_item">交易额</view>
+			<view class="flex_table_item">同比</view>
+		</view>
+		<!-- 滑到底部加载 -->
+		<scroll-view style="height:calc(100% - 100rpx);" scroll-y bindscrolltolower='bindscrolltolower'>
+			<view class="load_more" wx:if='{{!items||items.length===0}}'>暂无数据</view>
+			<view wx:else >
+				<view class="flexRow flex_top" bindtap="showDialog" wx:for="{{items}}" wx:for-item="item" wx:key="index">
+				<view class="flex_table_item font_14 color_666">{{item.type}}</view>
+				<view class="flex_table_item font_14 color_666">￥{{item.pay_all_value}}</view>
+				<view class="flex_table_item font_14 {{filter.indexOf(item.rate,'+')>-1?'color_red':'color_blue'}}">{{item.year_on_year}}
+					<image class="arrow_style" src="../../images/menuPage/arrow.png"></image>
+				</view>
+			</view>
+			<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+			</view>
+		</scroll-view>
+	</view>
+	<!-- 弹框 -->
+	<view class='dialog' catchtouchmove="true" wx:if='{{dialogFlag}}'>
+		<view class="table_panel dialog_panel">
+			<view class="title dilog_title">产品销售T20排行榜 <image bindtap="closeDialog" class="close_style" src="../image/x.png"></image>
+			</view>
+			<view class="flexRow flex_top color_333">
+				<view class="flex_table_item">产品名</view>
+				<view class="flex_table_item">订单数量</view>
+				<view class="flex_table_item">成交额</view>
+			</view>
+			<!-- 滑到底部加载 -->
+			<scroll-view style="height:calc(100% - 200rpx);" scroll-y bindscrolltolower='bindscrolltolower'>
+				<view class="flexRow flex_top" wx:for="{{dialogItems}}" wx:for-item="item" wx:key="index">
+					<view class="flex_table_item font_14 color_666">{{item['remark']}}</view>
+					<view class="flex_table_item font_14 color_666">{{item['order_num']}}</view>
+					<view class="flex_table_item font_14 color_666">{{item.pay_all_value}}</view>
+				</view>
+				<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+			</scroll-view>
+		</view>
+	</view>
+
+</view>

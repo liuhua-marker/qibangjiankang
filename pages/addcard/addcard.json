@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "注册新用户",
+  "usingComponents": {
+    "i-message": "../../iview/message/index"
+  },
+  "usingComponents2": {
+    "i-input": "../../iview/input/index"
+  }
+}

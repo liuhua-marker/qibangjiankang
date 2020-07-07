@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "签约门店",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "load-more": "../../components/load-more/index"
+  }
+  
+}

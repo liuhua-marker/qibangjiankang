@@ -1,0 +1,59 @@
+  <view class="order_me">
+  	<view class="li {{ state =='-1'  ? 'active' : ''}}" data-id="-1" bindtap="switchCate">全部</view>
+  	<view class="li {{ state == 0 ? 'active' : ''}}" data-id="0" bindtap="switchCate">待付款</view>
+  	<view class="li {{ state == 1 ? 'active' : ''}}" data-id="1" bindtap="switchCate">待发货</view>
+  	<view class="li {{ state == 2 ? 'active' : ''}}" data-id="2" bindtap="switchCate">待收货</view>
+  	<view class="li {{ state == 3 ? 'active' : ''}}" data-id="3" bindtap="switchCate">已完成</view>
+			<!-- <view class="li {{ state == 4 ? 'active' : ''}}" data-id="4" bindtap="switchCate">已退货</view> -->
+  </view>
+  <scroll-view class="order_box" scroll-y bindscrolltolower='bindscrolltolower'>
+  	<view class="orders">
+  		<navigator url="../orderDetail/orderDetail?id={{item.id}}" class="order" wx:for="{{orderList}}" wx:key="id">
+  			<view class="order-goods">
+  				<view class="h">
+  					<view class="label">订单编号：{{item.orderno}}</view>
+  					<view class="status">{{orderStatus[item.status]}}</view>
+  				</view>
+  				<view class="goods" wx:for="{{item.orderdetailList}}" wx:for-index="index" wx:for-item="detail" wx:key="id">
+  					<view class="item">
+  						<view class="img">
+  							<image src="{{picPath}}{{detail.picture.path}}{{detail.picture.picture}}?{{picStyle.mini}}"></image>
+  						</view>
+  						<view class="info">
+  							<view class="r">
+  								<view class="number">X{{detail.number}}</view>
+  								<view class="amount">¥{{detail.amount}}</view>
+  							</view>
+  							<view class="t">
+  								<view class="name">{{detail.productName}}</view>
+  								<view class="specInfo">{{detail.specInfo}}</view>
+  							</view>
+
+  						</view>
+  					</view>
+  				</view>
+  				<view class="b">
+  					<view class="l">共{{item.quantity}}件，共计：￥{{item.updateAmount}}</view>
+  					<view class="r">
+  						<button class="btn gopay" data-order-index="{{index}}" catchtap="payOrder" wx:if="{{item.status==0}}">去付款</button>
+  						<button class="btn gopay" data-order-index="{{index}}" catchtap="confirmOrder" wx:if="{{item.status==2}}">确认收货</button>
+  						<button class="btn gopay" data-order-index="{{index}}" catchtap="toOrder" wx:if="{{item.status==5||item.status==1||item.status==0}}">查看详情</button>
+  					</view>
+  				</view>
+  			</view>
+  		</navigator>
+  	</view>
+  	<view wx:if="{{orderList.length>3}}" class="loadmore">
+  		<block wx:if="{{nomore}}">
+  			<text>{{nomoreText}}</text>
+  		</block>
+  		<block wx:else>
+  			<text class="iconfont icon-loading loading" space="nbsp"></text>
+  			<text> {{loadmoreText}}</text>
+  		</block>
+  	</view>
+  	<view class="empty-view" wx:if="{{ orderList.length <= 0 }}">
+  		<image class="icon" src="../../../images/mall/allorder.png"></image>
+  		<text class="text">无订单数据</text>
+  	</view>
+  </scroll-view>

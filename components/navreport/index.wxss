@@ -1,0 +1,24 @@
+.scroll-view-x{
+  background-color: #fff;
+  white-space: nowrap;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  font-size: 15px;
+  font-weight: 500;
+  left: 0;
+  right:0;
+  width: auto;
+  height: 50px;
+  padding: 0px 0px 0px 15px
+}
+.scroll-view-x .scroll-view-item{
+  display:inline-block;
+  margin: 0 100rpx 0px 0px;
+  line-height: 40px;
+  cursor: pointer;
+}
+.on{
+  border-bottom: 2px solid #bd4044;
+  color: #bd4044;
+}

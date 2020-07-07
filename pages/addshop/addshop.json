@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "添加店员",
+  "usingComponents": {
+    "i-message": "../../iview/message/index"
+  },
+  "usingComponents2": {
+    "i-input": "../../iview/input/index"
+  }
+}

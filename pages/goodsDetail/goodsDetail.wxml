@@ -1,0 +1,26 @@
+<view class="titel">物流照片</view>
+<view class=' question-images-area'>
+  <view class='question-images'>
+    <block wx:for="{{imgArr}}">
+      <view class="q-image-wrap">
+        <image class='q-image' src='{{item}}' data-index='{{index}}' bindtap='previewImg'></image>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- 健康清单 -->
+<view class="list_box">
+  <view class="item_box" wx:for="{{listgoods}}" wx:for-item="item" wx:key='id'>
+    <!-- 循环列表：左图盒子 -->
+    <view class="item_l">
+      <image src='../../../../../images/history.jpg' class="item_img" />
+    </view>
+    <!-- 右边盒子 -->
+    <view class="item_r">
+      <view class="it_row_1">
+        <view class="item_t1">商品名称：{{item.deviceDTO.deviceName}}</view>
+      </view>
+      <view class="it_row_2">时间：{{item.deviceDTO.returnTime}}{{}}</view>
+    </view>
+  </view>
+</view>

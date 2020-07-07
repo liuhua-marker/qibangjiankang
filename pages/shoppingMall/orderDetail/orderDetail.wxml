@@ -1,0 +1,62 @@
+<view class="container">
+<view class="address-box">
+        <view class="address-item" bindtap="selectAddress" wx:if="{{orderInfo.ship}}">
+            <view class="l">
+                <text class="name">{{orderInfo.ship.shipname}}</text>
+            </view>
+            <view class="m">
+                <text class="mobile">{{orderInfo.ship.phone}}</text>
+                <text class="address">{{orderInfo.ship.province}}{{orderInfo.ship.city}}{{orderInfo.ship.area}}{{orderInfo.ship.shipaddress}}</text>
+            </view>
+            <view class="r">
+                 
+            </view>
+        </view> 
+    </view>
+    <view class="order-goods">
+        <view class="h">
+            <view class="label">订单状态</view>
+            <view class="status">{{orderStatus[orderInfo.status]}}</view>
+        </view>
+        <view class="goods">
+            <view class="item" wx:for="{{orderGoods}}" wx:key="id">
+                <view class="img">
+                    <image src="{{item.picture.path}}"></image>
+                </view>
+                <view class="info">
+                    <view class="r">
+                      <text class="number">x{{item.number}}</text>
+                      <view class="price">￥{{item.price}}</view>
+                     </view>
+                    <view class="t">
+                        <text class="name">{{item.productName}}</text>
+                        <view class="specInfo">{{item.specInfo||''}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="order-info">
+        <view class="item-b">下单时间：<text class='r'>{{orderInfo.createDate}}</text></view>
+        <view class="item-b">订单编号：<text class='r'>{{orderInfo.orderno}}</text></view>
+        <view class="item-b">商品总计：<text class='r'>¥{{orderInfo.ptotal}}</text></view>
+        <view class="item-b">运费(快递)：<text class='r'>¥{{orderInfo.fee}}</text></view>
+        <view class="item-b" wx:if="{{orderInfo.rebate>0}}">优惠金额：<text class='r'>¥{{orderInfo.rebate}}</text></view>
+        <view class="item-b">订单合计：<text class='r'>¥{{orderInfo.updateAmount}}</text></view>
+        <view class="item-b" wx:if="{{orderInfo.shipping}}">物流公司：<text class='r'>{{orderInfo.shipping_name}}</text></view>
+        <view class="item-b" wx:if="{{orderInfo.shipping}}">物流编号：<text class='r'>{{orderInfo.shipping_no}}</text></view>
+        <view class="item-c">
+            <view class="l">实付款(含快递)：<text class="cost">￥{{orderInfo.payAmount}}</text></view>
+             <view class="r">
+                <view wx:if="{{orderInfo.status==0}}">
+                  <view class="btn" bindtap="cancelOrder">关闭订单</view>
+                  <view class="btn active" bindtap="payOrder">去付款</view>
+                </view>
+                <view wx:elif="{{orderInfo.status==1}}">
+                  <view class="btn" bindtap="aftersaleOrder">取消订单</view>
+                  <view class="btn active" bindtap="confirmOrder">确认收货</view>
+                </view> 
+            </view>  
+        </view>
+    </view>
+</view>

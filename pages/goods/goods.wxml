@@ -1,0 +1,47 @@
+<!-- pages/goods/goods.wxml -->
+<view class="swiper-tab">
+  <view class="tab-item {{currentIndex1?'active':''}} " bindtap="currentIndex1">
+    发货完成({{fhwclist.length}})（批次）
+  </view>
+  <view class="tab-item {{currentIndex2?'active':''}}" bindtap="currentIndex2">
+    库存({{shhwclist.length}}）（批次）
+  </view>
+</view>
+<view class='tab-items'>
+  <view class='kong'></view>
+  <!-- 已发货 -->
+  <view class='{{currentIndex1?"show":"hidden"}}'>
+    <view class="item_box" wx:for="{{fhwclist}}" wx:key="index" wx:for-item="item" data-id="{{item.id}}" bindtap="lookfahuo" data-batch='{{item.batch}}'>
+      <!-- 循环列表：左图盒子 -->
+      <view class="item_l">
+        <image src='../../../../../images/history.jpg' class="item_img" />
+      </view>
+      <!-- 右边盒子 -->
+      <view class="item_r">
+        <view class="it_row_1">
+          <view class="item_t1">发送对象:{{item.quwangUserName}}</view>
+          <view class="item_t2">×{{item.countBatch}}</view>
+        </view>
+        <view class="it_row_2">发货时间:{{item.returntTime}}{{}}</view>
+        <view class="it_row_3">
+          <view class="del_but">查看详情</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 已到货 -->
+  <view class='{{currentIndex2?"show":"hidden"}}'>
+    <view class="item_box" wx:for="{{shhwclist}}" wx:key="index" wx:for-item="shitem" data-batch='{{shitem.batch}}' data-id="{{item.id}}" bindtap="lookshouhuo">
+      <view class="item_r">
+        <view class="it_row_1">
+          <view class="item_t1 bold">发货人:{{shitem.activtyUserName}}{{}}</view>
+          <view class="item_t2">×{{shitem.countBatch}}</view>
+        </view>
+        <view class="it_row_2">发货时间:{{shitem.returntTime}}{{}}</view>
+        <view class="it_row_3">
+          <view class="del_but" data-batch='{{shitem.batch}}'>查看详情</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

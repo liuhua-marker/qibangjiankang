@@ -1,0 +1,429 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.10.1",
+	"appid": "wxe55105020334df11",
+	"projectname": "qibang-dev",
+	"cloudfunctionTemplateRoot": "",
+	"watchOptions": {
+		"ignore": []
+	},
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "goodsReceiving",
+					"pathName": "pages/goodsReceiving/goodsReceiving",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/report/report",
+					"pathName": "pages/report/report",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "goods",
+					"pathName": "pages/goods/goods",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/goodsDetail/goodsDetail",
+					"pathName": "pages/goodsDetail/goodsDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/consumption/consumption",
+					"pathName": "pages/consumption/consumption",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "添加店员",
+					"pathName": "pages/addshop/addshop",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "注册新用户",
+					"pathName": "pages/addcard/addcard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "定制治疗",
+					"pathName": "pages/treatment/treatment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "顾客详情",
+					"pathName": "pages/treatment/treatment",
+					"query": "?ctNormal=%7B%22id%22%3A10000%2C%22code%22%3Anull%2C%22perorationId%22%3A%221214817129354756001%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%2219999%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E8%A1%80%E5%8E%8B%E4%B8%8D%E7%A8%B3%E5%AE%9A%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D&listNormal=%5B%7B%22id%22%3A10000%2C%22code%22%3Anull%2C%22perorationId%22%3A%221214817129354756001%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%2219999%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E8%A1%80%E5%8E%8B%E4%B8%8D%E7%A8%B3%E5%AE%9A%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10006%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192454%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%220%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E5%BF%83%E8%82%8C%E4%BE%9B%E8%A1%80%E4%B8%8D%E8%B6%B3%E5%8F%AF%E8%83%BD%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%5D&userName=%E6%98%8C%E7%9B%9B&phone=13574718090&index=0&headImg=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FDYAIOgq83er0yGmJvZZJ0moXRK0eWW6rGGm02yNcRviazLXksdqicYbia09IXvIkWliaQPPXrpibFxkqWlecZOKhQpQ%2F132&bid=null&openid=null",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "pages/normal/normal",
+					"pathName": "pages/normal/normal",
+					"query": "ctNormal=%7B%22id%22%3A10554%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192464%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%223666%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E9%A3%9F%E9%81%93%E7%82%8E%E6%80%A7%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D&listNormal=%5B%7B%22id%22%3A10299%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192493%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%228900%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E8%82%A9%E5%91%A8%E7%82%8E%E5%8F%AF%E8%83%BD%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10551%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192461%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%223890%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E9%BC%BB%E9%83%A8%E7%82%8E%E6%80%A7%E6%94%B9%E5%8F%98%EF%BC%88%E6%84%9F%E5%86%92%E6%88%96%E9%BC%BB%E7%82%8E%E9%BC%BB%E7%AA%A6%E7%82%8E%E7%AD%89)%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10554%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192464%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%223666%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E9%A3%9F%E9%81%93%E7%82%8E%E6%80%A7%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10578%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192512%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%221111%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E7%94%B2%E7%8A%B6%E8%85%BA%E4%BB%A3%E8%B0%A2%E5%BC%82%E5%B8%B8%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10538%2C%22code%22%3Anull%2C%22perorationId%22%3A%221214817129354756001%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%221111%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E8%A1%80%E5%8E%8B%E4%B8%8D%E7%A8%B3%E5%AE%9A%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10553%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192463%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%22100%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E5%8F%A3%E8%85%94%E7%82%8E%2F%E5%8F%A3%E5%91%A8%E7%89%99%E5%91%A8%E7%82%8E%E7%97%87%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10541%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192451%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%2212%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E5%81%8F%E5%A4%B4%E7%96%BC%E5%8F%AF%E8%83%BD%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10581%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192515%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%220%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E7%9C%BC%E9%83%A8%E7%82%8E%E7%97%87%E6%88%96%E7%9D%A1%E7%9C%A0%E6%AC%A0%E4%BD%B3%E5%8F%AF%E8%83%BD%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10543%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192453%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%220%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E8%A1%80%E8%84%82%E3%80%81%E8%A1%80%E9%BB%8F%E7%A8%A0%E5%8F%AF%E8%83%BD%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10304%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192498%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%220%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E8%84%8A%E6%9F%B1%E4%BE%A7%E5%BC%AF%E5%8F%AF%E8%83%BD%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10539%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192449%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%220%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E8%84%91%E4%BE%9B%E8%A1%80%E6%AC%A0%E4%BD%B3%E5%8F%AF%E8%83%BD%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10295%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192489%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%220%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E9%A2%88%E8%83%8C%E9%83%A8%E8%82%8C%E7%AD%8B%E8%86%9C%E7%82%8E%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10567%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192477%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%220%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E4%B9%B3%E8%85%BA%E4%BB%A3%E8%B0%A2%E7%83%AD%E5%BC%82%E5%B8%B8%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%2C%7B%22id%22%3A10549%2C%22code%22%3Anull%2C%22perorationId%22%3A%221217276543865192459%22%2C%22bid%22%3Anull%2C%22orderBy%22%3Anull%2C%22createBy%22%3Anull%2C%22updateBy%22%3Anull%2C%22createTime%22%3Anull%2C%22updateTime%22%3Anull%2C%22status%22%3Anull%2C%22amount%22%3A%220%22%2C%22num%22%3Anull%2C%22name%22%3A%22%E8%82%BA%E7%BA%B9%E7%90%86%E5%A2%9E%E5%A4%9A%E6%88%96%E8%82%BA%E7%82%8E%E6%80%A7%E7%83%AD%E6%BA%90%E6%94%B9%E5%8F%98%22%2C%22remarks%22%3Anull%2C%22healthRecommend%22%3Anull%2C%22recommend%22%3Anull%2C%22cureList%22%3Anull%7D%5D&userName=%E6%9B%BE%E5%9B%BD%E5%8D%8E&phone=13975133847&index=2&headImg=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2F4Q8z0qI6T8y6zGqXeM4aXiame4qTGwoRGSWiaw2YibutBtnXczT91V16SlTNJchibLyNL9A24vc4kVn0jrE02uPXibA%2F132&bid=null&openid=owZ044wLgowMxN3dLPWcEOw6hzHM",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "中控平台",
+					"pathName": "pages/menuPage/menuPage",
+					"query": "currentOrgName=药实惠运营部&currentBid=1243472871498448896&roleCode=",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "销售分析",
+					"pathName": "pages/salesAnalysis/salesAnalysis",
+					"query": "currentOrgName=药实惠运营部&currentBid=1248511423928074240",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "签约门店",
+					"pathName": "pages/contractedStore/contractedStore",
+					"query": "currentOrgName=药实惠运营部&currentBid=1248511423928074240&isShow=true",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "团队业绩",
+					"pathName": "pages/subordinatePerformance/subordinatePerformance",
+					"query": "currentOrgName=药实惠运营部&currentBid=1252900609858732032&isShow=true",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "团队管理",
+					"pathName": "pages/teamManagement/teamManagement",
+					"query": "currentOrgName=药实惠运营部&currentBid=1233598402546106374",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "签约详情",
+					"pathName": "pages/signingStatistics/signingStatistics",
+					"query": "currentBid=1248511423928074240",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设置下级",
+					"pathName": "pages/setSubordinate/setSubordinate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 18,
+					"name": "利润发放",
+					"pathName": "pages/profitDistribution/profitDistribution",
+					"query": "currentOrgName=药实惠运营部&currentBid=1248511423928074240",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "利润详情",
+					"pathName": "pages/profitDetails/profitDetails",
+					"query": "id=1248511423928074240&id=1248511423928074240&date=2020-04",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "商城首页",
+					"pathName": "pages/shoppingMall/shop/index",
+					"query": "currentOrgName=药实惠运营部&currentBid=1248511423928074240&isShow=true",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/shoppingMall/cart/cart",
+					"query": "currentOrgName=药实惠运营部&currentBid=1248511423928074240&isShow=true",
+					"scene": null
+				},
+				{
+					"id": 23,
+					"name": "支付",
+					"pathName": "pages/shoppingMall/pay/pay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付结果",
+					"pathName": "pages/shoppingMall/payResult/payResult",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 25,
+					"name": "订单详情",
+					"pathName": "pages/shoppingMall/orderDetail/orderDetail",
+					"query": "id=2020061311000002",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "地址",
+					"pathName": "pages/shoppingMall/address/address",
+					"query": "currentBid=1248511423928074240",
+					"scene": null
+				},
+				{
+					"id": 27,
+					"name": "健康测评",
+					"pathName": "pages/HealthAssessment/healthDegree/healthDegree",
+					"query": ""
+				},
+				{
+					"id": 28,
+					"name": "健康测评表",
+					"pathName": "pages/HealthAssessment/evaluationForm/evaluationForm",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商户充值",
+					"pathName": "pages/userRecharge/recharge/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/shoppingMall/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单确认",
+					"pathName": "pages/shoppingMall/checkout/checkout",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "充值记录",
+					"pathName": "pages/userRecharge/rechargeRecord/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "测评报告",
+					"pathName": "pages/HealthAssessment/evaluationReport/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 34,
+					"name": "订单确认",
+					"pathName": "pages/shoppingMall/checkout/checkout",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新增地址",
+					"pathName": "pages/shoppingMall/addressAdd/addressAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "月租扣费",
+					"pathName": "pages/monthlyRentDeduction/monthlyRentDeduction",
+					"query": "currentOrgName=药实惠运营部&currentBid=1248511423928074240&isShow=true",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "积分",
+					"pathName": "pages/wallet/stream",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 38,
+					"name": "物流详情",
+					"pathName": "pages/logisticsInformation/logisticsInformation",
+					"query": "deliveryType =yuantong&postId=1248511423928074240",
+					"scene": null
+				},
+				{
+					"id": 39,
+					"name": "话术",
+					"pathName": "pages/colloquialism/colloquialism",
+					"query": "deliveryType =yuantong&postId=1248511423928074240",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分配话术",
+					"pathName": "pages/distribution/distribution",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 41,
+					"name": "话术训练",
+					"pathName": "pages/speechTraining/speechTraining",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的余额",
+					"pathName": "pages/userRecharge/myBalance/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 43,
+					"name": "异常详情",
+					"pathName": "pages/normal/normal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "话术详情",
+					"pathName": "pages/speechDetail/speechDetail",
+					"query": "deliveryType =yuantong&postId=1248511423928074240",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "到店预约",
+					"pathName": "pages/customerAppointment/customerAppointment",
+					"query": "deliveryType =yuantong&postId=1248511423928074240",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约",
+					"pathName": "pages/appointmentStart/appointmentStart",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "健康测评2",
+					"pathName": "pages/normal/normal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 48,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": "page=treatment",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "扫码套盒后",
+					"pathName": "pages/consumption/consumption",
+					"query": "currentOrgName=药实惠运营部&currentBid=1248511423928074240",
+					"scene": null
+				},
+				{
+					"id": 50,
+					"name": "视频详情",
+					"pathName": "pages/mediaDetail/mediaDetail",
+					"query": "id=100044",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "测评结果",
+					"pathName": "pages/HealthAssessment/healthResult/index",
+					"query": "currentOrgName=药实惠运营部&currentBid=1252900609858732032&isShow=true",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,62 @@
+<!--pages/appointmentStart/appointmentStart.wxml 开始预约-->
+<scroll-view class="panel" scroll-y>
+	<view class="flex_panel">
+		<view>
+			顾客名字
+		</view>
+		<view class="text_right">
+			<input placeholder-class='placceholder' placeholder='请输入顾客姓名' bindinput='bindPickerChange' data-type='customerName' maxlength="6"></input>
+		</view>
+	</view>
+	<view class="flex_panel">
+		<view>
+			手机号码
+		</view>
+		<view class="text_right">
+			<input placeholder-class='placceholder' type='number' placeholder='请输入手机号码'  bindinput='bindPickerChange' data-type='phoneNumber' maxlength="11"></input>
+		</view>
+	</view>
+	<view class="flex_panel">
+		<view>
+			服务项目
+		</view>
+		<view class="text_right">
+			<!-- <picker bindchange="bindPickerChange" value="{{projectIndex}}" range="{{allData.projectServiceVos}}" range-key='projectService' data-type='projectIndex'>
+				<text>{{allData.projectServiceVos[projectIndex].projectService || '请选择'}}</text>
+				<image class="drop_img {{isShow?'transfrom_90':''}}" mode="widthFix" src="../../images/menuPage/arrow2.png"></image>
+			</picker> -->
+			<input placeholder-class='placceholder' placeholder='请输入服务项目'  bindinput='bindPickerChange' data-type='projectService' maxlength="11"></input>
+		</view>
+	</view>
+	<view class="flex_panel">
+		<view>
+			服务人员
+		</view>
+		<view class="text_right">
+			<picker bindchange="bindPickerChange" value="{{assistantIndex}}" range="{{assistantVos}}" range-key='name' data-type='assistantIndex'>
+				<text>{{assistantVos[assistantIndex].name || '请选择'}}</text>
+				<image class="drop_img {{isShow?'transfrom_90':''}}" mode="widthFix" src="../../images/menuPage/arrow2.png"></image>
+			</picker>
+		</view>
+	</view>
+	<view class="flex_panel">
+		<view>
+			预约时间
+		</view>
+		<view class="text_right">
+			<picker bindchange="bindPickerChange" mode='date' bindchange="bindPickerChange" value="{{startDate}}" start="{{start_s}}" data-type="startDate">
+				<text>{{startDate || '请选择'}}</text>
+				<image class="drop_img {{isShow?'transfrom_90':''}}" mode="widthFix" src="../../images/menuPage/arrow2.png"></image>
+			</picker>
+		</view>
+	</view>
+	<view class="flex_panel border_none">
+		选择时间段
+	</view>
+	<view class="flex_panel flex_row_3">
+		<view wx:for='{{allData.appointmentTimeQuantumVos}}' wx:for-item="item" wx:key="index" wx:for-index="index" bindtap="changeTime" data-id='{{item.id}}'>
+			<view class="time_box {{timeQuantumId === item.id?'active':''}}" bindtap="changeTime"> {{item.timeQuantum}}</view>
+		</view>
+	</view>
+</scroll-view>
+<button url='/pages/appointmentStart/appointmentStart' class="btn_style" bindtap="bindSubmit">提交预约</button>

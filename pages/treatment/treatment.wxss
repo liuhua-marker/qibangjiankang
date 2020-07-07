@@ -1,0 +1,637 @@
+/* pages/youhui/youhui.wxss */
+
+
+.main_box {
+  box-sizing: border-box;
+  padding: 33.75rpx;
+  top: 10px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.main {
+  width: 100%;
+  z-index: 999;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 3.75rpx 16.875rpx 0px rgba(10, 2, 4, 0.1);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+}
+
+.main2 {
+  box-sizing: border-box;
+  padding: 11rpx;
+  width: 100%;
+  z-index: 999;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 3.75rpx 16.875rpx 0px rgba(10, 2, 4, 0.1);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.main_row {
+  box-sizing: border-box;
+  padding: 0 33.75rpx;
+  height: 100rpx;
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.main_item {
+  width: 706rpx;
+  height: 190rpx;
+  margin: 7rpx auto;
+  position: relative;
+}
+
+.main_item image {
+  width: 100%;
+  height: 100%;
+}
+
+.weui-flex {
+  display: flex;
+  height: 100%;
+}
+
+
+.we_img {
+  margin-right: 37.5rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.we_imges_name {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.we_imges_time {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.5;
+}
+
+/* 弹出层 */
+
+.modalDlg {
+  width: 70%;
+  position: fixed;
+  top: 200rpx;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 弹出层里面的按钮 */
+
+.ok {
+  line-height: 35px;
+  text-align: center;
+  font-size: 15px;
+  margin: 0rpx auto;
+  width: 100%;
+  border-top: 1px solid rgb(231, 230, 230);
+}
+
+/* 弹出层里面的文字 */
+
+.text {
+  text-align: center;
+  font-size: 60rpx;
+  color: red;
+  width: 100%;
+  padding-bottom: 50rpx;
+  font-weight: bold;
+  border-bottom: 1rpx solid #d6d6d6;
+}
+
+/* 下拉展示框 开始 */
+.introduce {
+  width: 94%;
+  height: 90rpx;
+  margin: 16rpx auto;
+  border-radius: 8rpx;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.introduce_title {
+  width: 400rpx;
+  height: 90rpx;
+  font-size: 25rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+  margin-left: 30rpx;
+  color: #333333;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.zhankai {
+  width: 90rpx;
+  height: 90rpx;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #999999;
+  font-weight: bold;
+}
+
+.introduces {
+  width: 94%;
+  height: auto;
+  margin: 16rpx auto;
+  border-radius: 8rpx;
+  background: #ffffff;
+  position: relative;
+}
+
+.introduces_head {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.introduce_titles {
+  width: 190rpx;
+  height: 90rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+  margin-left: 30rpx;
+  color: #333333;
+  border-bottom: 2px solid #3d4663
+}
+
+.hr {
+  width: 100%;
+  height: 2rpx;
+  background: #e6e6e6;
+  position: absolute;
+  left: 0;
+}
+
+.introduces_content {
+  width: 92%;
+  padding: 28rpx 30rpx 30rpx 30rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+}
+
+.list {
+  width: 100%;
+  margin-top: 20rpx;
+
+}
+
+.rexian {
+  width: 100%;
+  height: 88rpx;
+  /* position: fixed; */
+  bottom: 0;
+  left: 0
+}
+
+.tel {
+  width: 100%;
+  height: 88rpx;
+  font-size: 24rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #666666;
+}
+
+.kefu {
+  position: fixed;
+  bottom: 20rpx;
+  right: 0;
+  width: 200rpx;
+  height: 54rpx;
+  background: #aaaaaa;
+  border-top-left-radius: 27rpx;
+  border-bottom-left-radius: 27rpx;
+  display: flex;
+  justify-content: space-around
+}
+
+.kufu_pic {
+  width: 32rpx;
+  height: 34rpx;
+  display: block;
+  margin: 10rpx 0 0 26rpx;
+}
+
+.kefu_describe {
+  width: 102rpx;
+  height: 54rpx;
+  font-size: 24rpx;
+  line-height: 54rpx;
+  color: #ededed;
+}
+
+/* 下拉展示框结束 */
+
+.content_h1 {
+  font-weight: 300;
+}
+
+.content_title {
+  font-weight: bold;
+  margin: 10rpx 0rpx 5rpx 0rpx;
+  color: red;
+
+}
+
+.case_detail_title {
+  margin-top: 5px;
+}
+
+.preceptName {
+  opacity: 0.8;
+}
+
+.case_title {
+  font-weight: 550;
+  height: 30px;
+  line-height: 30px;
+}
+
+.preceptNumber {
+  float: right;
+  opacity: 0.5;
+}
+
+.introduces_case {
+  width: 100%;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  margin-top: 10px;
+}
+
+.curehr {
+  width: 100%;
+  height: 2rpx;
+  background: #e6e6e6;
+  position: absolute;
+  left: 0;
+  margin: 5px 0px;
+}
+
+.casedetail {
+  width: 100%;
+  margin-top: 10rpx;
+  letter-spacing: 1px;
+  text-indent: 10px;
+}
+
+.servicedetail {
+  width: 100%;
+  margin-top: 20rpx;
+  letter-spacing: 1px;
+  text-indent: 10px;
+  background-color: rgb(233, 155, 155);
+}
+
+.csaes_div {
+  width: 100%;
+  height: 90rpx;
+  margin: 16rpx auto;
+  border-radius: 8rpx;
+  background: rgb(188, 226, 156);
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.csaes_div .cases_introduce_title {
+  color: #ffffff;
+  width: 400rpx;
+  height: 90rpx;
+  font-size: 25rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+  margin-left: 30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.csaes_div .cases_zhankai {
+  color: #ffffff;
+  width: 90rpx;
+  height: 90rpx;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-weight: bold;
+}
+
+.hs_title {
+  font-size: 16px;
+}
+
+.hs_projectName {
+  font-size: 15px;
+  margin: 5px 0px;
+}
+
+.hs_serviceMemo {
+  font-size: 15px;
+  margin: 5px 0px;
+}
+
+.hs_remarks {
+  font-size: 15px;
+  margin: 5px 0px 15px 0px;
+}
+
+.case_detail__service_title {
+  font-size: 24rpx;
+  line-height: 24rpx;
+  margin-top: 10px;
+  color: black;
+  border-radius: 5%;
+  width: 50%;
+}
+
+.img_list {
+  display: flex;
+  justify-content: space-around;
+  height: 200rpx;
+  box-sizing: border-box;
+  padding-top: 28.125rpx;
+}
+
+.q-image {
+  width: 219.375rpx;
+  height: 150rpx;
+}
+
+.img_list_del {
+  width: 28.125rpx;
+  height: 28.125rpx;
+}
+
+.img_list_box {
+  position: relative;
+}
+
+.img_list_del {
+  position: absolute;
+  top: -14.063rpx;
+  right: -14.063rpx;
+}
+
+.q-video {
+  width: 320rpx;
+  height: 200rpx;
+}
+
+.img {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.csaes_div_ft {
+  margin-top: 30px;
+}
+
+.mine_banner {
+  width: 100%;
+  height: 272rpx;
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+
+}
+
+#youhui {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  font-size: 23rpx;
+  z-index: 999;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 0 33.75rpx;
+  height: 100rpx;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid #EBEBEB
+}
+
+#youhui .one {
+  width: 50%;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.change_btn {
+  padding: 18.75rpx 37.5rpx;
+  border-bottom: 2px solid transparent;
+}
+
+#youhui .hover {
+  border-bottom: 5rpx solid #BD4044;
+  color: #BD4044;
+}
+
+
+.content {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.toptext {
+  color: #f90;
+  font-size: 30rpx;
+  margin-bottom: 33.75rpx;
+  background: rgba(255, 255, 255, 1);
+  /* box-shadow: 0px 3.75rpx 16.875rpx 0px rgba(10, 2, 4, 0.1); */
+  border-radius: 16.875rpx;
+  box-sizing: border-box;
+  line-height: 35rpx;
+  padding: 15rpx 22.5rpx;
+}
+
+.check {
+  transform: scale(0.6);
+  padding-left: 10px;
+  color:rgba(88, 83, 83, 1);
+  font-size:32rpx
+}
+
+.checktile {
+  font-size: 13px;
+  margin-left: 10px
+}
+
+.introducelist {
+  margin-top: 5px;
+  min-height: 50px;
+  padding-left: 5x;
+  overflow: hidden;
+  
+}
+.flex_panel{
+  display: flex;
+  flex-wrap: wrap;
+}
+.btn_box{
+  position:relative;
+  width:50%;
+}
+.btn1 {
+  margin: 20rpx;
+  background-color: #ffffff;
+  color: rgba(91, 61, 5, 1);
+  border-radius: 98rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #DAB68F;
+  /* float: left; */
+  /* padding:30rpx 10rpx; */
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 13px;
+  position: relative;
+}
+
+.normal {
+  padding: 0px 80rpx 0px 30rpx;
+  font-size: 15px;
+  box-shadow: -1px -1px 9px 2px rgba(10, 2, 4, 0.1);
+  height: 40px;
+  line-height: 40px;
+}
+
+.normallenght {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+
+.normaldata {
+  width: 50%;
+  font-weight: bold;
+  color:rgba(51, 51, 51, 1)
+}
+
+.nodatatext {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0px 10px 0px;
+  font-size: 15px;
+}
+
+.nodataImg {
+  width: 300rpx;
+  height: 300rpx;
+  margin:0 auto;
+  display: block;
+}
+
+.normalqian {
+  width: 3px;
+  height: 20px;
+  background-image: linear-gradient(#FF6C00, #BD4044);
+  float: left;
+  margin: 10px 5px 0px 0px;
+}
+
+.viewReport {
+  width: 100px;
+  height: 23px;
+  float: right;
+  border: 1px solid #B48A48;
+  /* border-image: -webkit-linear-gradient(#EAD4A5, #B48A48)1 10 1;
+  border-image-source: -moz-linear-gradient(#EAD4A5, #B48A48)1 10 1;
+  border-image-source: linear-gradient(#EAD4A5, #B48A48)1 10 1; */
+  border-radius: 15px;
+  font-size: 13px;
+
+}
+.we_imges_report {
+  width: 35rpx;
+  height: 35rpx;
+  float: left;
+  margin: 3px 10px 0px 10px;
+}
+.reportView{
+  color: #B48A48;
+  line-height: 48rpx;
+}
+#btnShare{
+  border: 1px solid  rgb(235, 47, 14);
+  width: 100px;
+  height: 50rpx;
+  border-radius: 15px;
+  font-size: 13px;
+  color: rgb(235, 47, 14);
+  line-height: 48rpx;
+}
+.amout_style{
+  position: absolute;
+  right:10rpx;
+  top:0rpx;
+  font-size: 24rpx;
+  color:#fff;
+  background-color: rgb(235, 47, 14);
+  z-index: 10;
+  padding:5rpx 10rpx;
+  border-radius: 50rpx;
+}
+
+.dialog .dialog_panel{
+  border-radius: 10rpx;
+  left: 100rpx;
+  right: 100rpx;
+  height: auto;
+  text-align: center;
+  padding-bottom: 30rpx;
+}
+.dilog_title{
+  border-bottom: 1px solid #dcdcdc;
+}
+.switch_box{
+  padding:30px 0;
+}

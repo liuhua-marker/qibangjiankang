@@ -1,0 +1,8 @@
+
+{
+  "navigationBarTitleText": "用户授权",
+  "usingComponents": {
+    "i-message": "../../iview/message/index",
+    "i-input": "../../iview/input/index"
+  } 
+}

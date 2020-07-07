@@ -1,0 +1,42 @@
+.scroll-view-x{
+  background-color: #EEEEEE;
+  white-space: nowrap;
+  position: absolute;
+  z-index: 10;
+  top: 380rpx;
+  font-size: 14px;
+  font-weight: 500;
+  margin:0px 0px 5px 0px;
+  width: 100%;
+  /* padding: 0px 15px 0px 15px;  */
+}
+.scroll-view-x .scroll-view-item{
+  display:inline-block;
+  margin: 0 0rpx 0px 15px;
+  line-height: 33px;
+  cursor: pointer;
+  position: relative;
+  font-weight:550;
+  font-family: Source Han Sans CN;
+}
+.on{
+  color: #bd4044;
+  background-color: #ffffff;
+  padding: 0px 10px 0px 10px;
+}
+.on::after{
+  /* border-bottom: 2px solid #bd4044;
+  color: #bd4044;
+  background-color: #ffffff;
+  padding: 0px 15px 0px 15px; */
+
+  content: '';
+  position: absolute;
+  height: 4px;
+  width: 80rpx;
+  background-color: #bd4044;
+  bottom: -0.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  
+}

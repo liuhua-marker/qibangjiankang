@@ -1,0 +1,9 @@
+<view class="container-box">
+  <view class="container-icon">
+    <image src="../../../images/money.png" style="width: 150px;height:150px"></image>
+  </view>
+  <view>我的余额</view>
+  <view class="container-by">￥{{balance}}</view>
+  <button class="container-but" bindtap="viewingProgress">去充值</button>
+  <!-- <button class="container-but" bindtap="viewingProgress">去提现</button> -->
+</view>

@@ -1,0 +1,12 @@
+
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "i-message": "../../iview/message/index",
+    "slideTab": "../../components/navigator/index"
+  },
+  "usingComponents2": {
+    "i-input": "../../iview/input/index"
+  }
+ 
+}

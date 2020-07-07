@@ -1,0 +1,97 @@
+/* pages/distribution/distribution.wxss */
+.panel{
+  background: #fff;
+  border-radius: 20rpx;
+  width:90%;
+  margin-left: 5%;
+}
+.flex_panel{
+  border-bottom: 1px solid #dcdcdc;
+  font-size: 32rpx;
+  padding:30rpx 40rpx;
+  color:#333;
+}
+.drop_img{
+  width: 20rpx;
+  float: right;
+  transform: rotate(90deg);
+  margin:5rpx 0 0 30rpx;
+}
+.page_panel{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right:0;
+  top:0;
+  z-index: 100;
+  background:rgba(0, 0, 0, 0.2);
+}
+.page-body{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* right:0;
+  top:0; */
+  z-index: 100;
+  width:100%;
+  background: #fff;
+}
+.btn_basic{
+  font-size: 34rpx;
+  border:none;
+  padding:0 50rpx;
+  line-height: 100rpx;
+  background: transparent;
+  margin:0;
+}
+.btn_green{
+  color:#68BD67
+}
+.btn_basic::after{
+  border:none
+}
+.weui-check__label{
+  display: flex;
+  justify-content:center;
+  padding:20rpx 0;
+}
+.text_right{
+  text-align: right;
+}
+/* .weui-cell__hd{
+  width: 50%;
+} */
+.picker{
+  min-width: 400rpx;
+  text-align: right;
+  /* background: red; */
+}
+.text_checkbox{
+  line-height: 60rpx;
+}
+.btn_box{
+  width: 100%;
+  min-height: 40rpx;
+  z-index: 12;
+  display: flex;
+  justify-content: flex-end;
+  padding:30rpx 0;
+}
+.btn_bottom{
+  display:inline-block;
+  font-size: 34rpx;
+  padding:0 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color:#fff;
+  background:#F8B551;
+  margin:0 30rpx 0 0;
+  border-radius: 60rpx;
+}
+.btn_bottom::after{
+  background:transparent;
+  border:none
+}
+.btn_submit{
+ background: #EC6941;
+}

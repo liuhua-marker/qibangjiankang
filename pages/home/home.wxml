@@ -1,0 +1,160 @@
+<!--pages/mine/mine.wxml-->
+<!-- 头部 -->
+<i-message id="message" />
+<image class="header_img" src="https://health.qbjiankang.com/icon/h_header.png"></image>
+<view class='mine_info'>
+	<!-- 此处是一个swiper轮播 -->
+	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" style="height: 350rpx">
+		<block>
+			<swiper-item>
+				<image widthFix class='banner' src="https://health.qbjiankang.com/cureimg/guan_g1.jpg"></image>
+			</swiper-item>
+			<swiper-item>
+				<image widthFix class='banner' src="https://health.qbjiankang.com/cureimg/guan_g2.jpg"></image>
+			</swiper-item>
+			<swiper-item>
+				<image widthFix class='banner' src="https://health.qbjiankang.com/cureimg/guan_g3.jpg"></image>
+			</swiper-item>
+
+		</block>
+	</swiper>
+	<!-- <view class='mine_info_head'>
+		<view class='mine_head_left' bindtap="scanOnclick">
+			<image class='mine_head_leftPic' src='../image/scan.png'></image>
+			<view class='mine_head_leftDes' >扫一扫</view>
+		</view>
+
+	view class='mine_head_right' bindtap='addr'>
+			<image src='../image/danan.png' class='mine_head_rightPic'></image>
+			<view class='mine_head_rightDes'>健康档案</view>
+		</view>
+	 <view class='mine_head_right' bindtap='addr'>	
+			<image src='../image/adduser.png' class='mine_head_rightPic'></image>
+			<view class='mine_head_rightDes'>用户注册</view>
+		</view>
+		<view class='mine_head_right' bindtap='codeOpen'>
+			<image src='../image/usercode.png' class='mine_head_rightPic'></image>
+			<view class='mine_head_rightDes'>健康码</view>
+		</view>
+	</view> -->
+</view>
+
+<view>
+	<slideTab tList="{{statusType}}" bind:changeCurrent="swichNav" currentTab="{{currentType}}" data-id="{{currentType}}">
+		<swiper current="{{currentType}}" duration="300" bindchange="bindChange" class="swiper_body">
+			<block>
+				<swiper-item wx:for="{{statusType}}" wx:key="index" style="overflow:hidden;margin-top: 15px;">
+					<view class="swipertext" wx:if="{{item.userRole != 4}}">
+						<view class="qiehuan" bindtap="changeRole">切换组织</view>
+						<view class="zhuzi">
+							<view class="zhuzite">
+								当前组织：{{currentOrgName}}
+							</view>
+						</view>
+					</view>
+					<scroll-view scroll-y="false" class="order-list" scroll-with-animation="true" lower-threshold="1" bindscrolltolower="scrolltolower" style="" hidden="{{item ? flase : true}}">
+						<view class="a-order">
+							<view class="center">
+
+								<view style="position:relative;" wx:if="{{personFun.length>0}}">
+									<view class="normal">
+										个人中心
+									</view>
+									<view class="iconbuss">
+										<block wx:for="{{personFun}}" wx:for-item="item" wx:key="index">
+											<view class='home_grid' hover-class="none" bindtap="{{item.eventName}}">
+												<image src="https://health.qbjiankang.com/icon/{{item.iconName}}" class="home_icon"></image>
+												<view class="home_grid_text">{{item.functionName}}</view>
+											</view>
+										</block>
+									</view>
+								</view>
+
+								<view style="position:relative;" wx:if="{{businessFun.length>0}}">
+									<view class="normal">
+										业务操作
+									</view>
+									<view class="iconbuss">
+
+										<block wx:for="{{businessFun}}" wx:for-item="item" wx:key="index">
+											<view class='home_grid' hover-class="none" bindtap="{{item.eventName}}">
+												<image src="https://health.qbjiankang.com/icon/{{item.iconName}}" class="home_icon"></image>
+												<view class="home_grid_text">{{item.functionName}}</view>
+											</view>
+										</block>
+										<!-- <view class='home_grid' hover-class="none" bindtap="huashuxunlian">
+												<image src="https://health.qbjiankang.com/icon/{{item.iconName}}" class="home_icon"></image>
+												<view class="home_grid_text">话术</view>
+											</view> -->
+									</view>
+								</view>
+
+								<view style="position:relative;" wx:if="{{teamFun.length>0}}">
+									<view class="normal">
+										团队及业绩
+									</view>
+									<view class="iconbuss">
+										<block wx:for="{{teamFun}}" wx:for-item="item" wx:key="index">
+											<view class='home_grid' hover-class="none" bindtap="{{item.eventName}}">
+												<image src="https://health.qbjiankang.com/icon/{{item.iconName}}" class="home_icon"></image>
+												<view class="home_grid_text">{{item.functionName}}</view>
+											</view>
+										</block>
+									</view>
+								</view>
+							</view>
+
+
+							<!-- <view style="position:relative;" wx:if="{{teamFun.length>0}}">
+									<view class="normal">
+										资讯
+									</view>
+									<view class="iconbuss">
+									
+									</view>
+								</view>
+						 -->
+
+
+						</view>
+					</scroll-view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</slideTab>
+</view>
+
+
+
+<!-- 遮罩层 -->
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<!-- 弹出层 -->
+<view class="modalDlg" wx:if="{{showModal}}">
+
+	<text style='font-size:39rpx;font-weight:bold;padding-top:50rpx;'>组织切换</text>
+	<!--服务列表页中的单选框 -->
+	<scroll-view style="max-height:600rpx" scroll-y>
+		<radio-group class="radio-group" bindchange="getGenderChange" style="padding: 20rpx;width: 90%;">
+			<label class="radio" wx:for="{{userRoleOrg}}" wx:for-item="list" wx:key="index" class="rolelable">
+				<radio value="{{list.bid}}" checked="{{list.checked}}" class="roleradio" />
+				<view class="roleview">{{list.orgName}} </view>
+			</label>
+		</radio-group>
+	</scroll-view>
+
+
+	<view bindtap="ok" class="ok">确定</view>
+</view>
+
+<!-- 遮罩层 -->
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{codeModal}}"></view>
+<!-- 弹出层 -->
+<view class="modalDlg" wx:if="{{codeModal}}">
+
+	<text style='font-size:39rpx;font-weight:bold;padding-top:50rpx;'>健康码</text>
+
+	<!--服务列表页中的单选框 -->
+	<text class="userCode">{{newButton}}</text>
+
+	<view bindtap="closecode" class="ok">确定</view>
+</view>

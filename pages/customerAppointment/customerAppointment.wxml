@@ -1,0 +1,61 @@
+<!--客户预约-->
+<scroll-view class="panel" scroll-y>
+	<view class="data_panel">
+		<picker bindchange="bindPickerChange" value="{{index}}" range="{{monthArr}}" range-key='name'>
+			<view class="month"><text>{{monthArr[index].name}}</text>
+				<image src="../../images/menuPage/arrow2.png" class="down_arrow arrow_top" mode="widthFix"></image>
+			</view>
+		</picker>
+		<view class="date_panel {{hidden}}">
+			<block wx:for='{{allMonthData}}' wx:for-item="item" wx:key="index" wx:for-index="index">
+				<view class="flex_panel">
+					<view wx:for='{{item.dateVos}}' wx:for-item="itemchild" wx:key="childIndex" wx:for-index="childIndex">
+						<view wx:if='{{index === 0}}' class="top_text">{{week[childIndex]}}</view>
+						<view class="bottom_num {{isActive ===itemchild.day?'active':''}}" bindtap="changeDay" data-day="{{itemchild.day}}">{{itemchild.day}}</view>
+					</view>
+				</view>
+			</block>
+
+			<view class="date_arrow">
+				<image src="../../images/menuPage/arrow2.png" class="down_arrow" mode="widthFix" bindtap="toggleDate"></image>
+			</view>
+		</view>
+	</view>
+	<view class="list_panel">
+		<view class="flex_panel">
+			<view wx:if='{{isShopMan}}'><text class="btn_sty {{btnActive==='0'?'btn_active':''}}" bindtap="changeList" data-index="0">全部预约</text> </view>
+			<view><text class="btn_sty {{btnActive==='1'?'btn_active':''}}" bindtap="changeList" data-index="1">预约我的</text> </view>
+		</view>
+		<view class="list_box" wx:if="{{btnActive==='0'}}">
+			<view wx:if='{{allData.all.length===0}}' class="no_data">暂无数据</view>
+			<view class="flex_panel list" wx:for='{{allData.all}}' wx:for-item="item" wx:key="index" wx:for-index="index">
+				<view class="border">
+					<view class="align_left">
+						<text class="time_sty">{{item.timeQuantum}}</text>
+						<text class="center_sty">店员：{{item.clerkName}}</text>
+					</view>
+					<view class="bottom_sty align_left">
+						{{item.projectService}}
+					</view>
+				</view>
+				<view class="bottom_sty name_sty">{{item.customerName}}</view>
+			</view>
+		</view>
+		<view class="list_box" wx:if="{{btnActive==='1'}}">
+			<view wx:if='{{allData.my.length===0}}' class="no_data">暂无数据</view>
+			<view class="flex_panel list" wx:for='{{allData.my}}' wx:for-item="item" wx:key="index" wx:for-index="index">
+				<view class="border">
+					<view class="align_left">
+						<text class="time_sty">{{item.timeQuantum}}</text>
+						<text class="center_sty">店员：{{item.clerkName}}</text>
+					</view>
+					<view class="bottom_sty align_left">
+						{{item.projectService}}
+					</view>
+				</view>
+				<view class="bottom_sty name_sty">{{item.customerName}}</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+<navigator url='/pages/appointmentStart/appointmentStart' class="btn_style" bindtap="distribution">立即预约</navigator>

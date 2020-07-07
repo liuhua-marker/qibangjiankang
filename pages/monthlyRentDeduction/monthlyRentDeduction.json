@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "月租扣费",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "load-more": "../../components/load-more/index"
+  }
+}

@@ -1,0 +1,47 @@
+<!-- 健康清单 -->
+<i-message id="message" />
+<view class="main">
+	<scroll-view class="datalistBox">
+		<view class="item_box" wx:for="{{goods}}" wx:for-item="item" data-id="{{item.id}}">
+			<view class="flex_box">
+				<view class="item_l">
+					<image src='../../../../../images/history.jpg' class="item_img" />
+				</view>
+				<view class="item_r">
+					<view class="it_row_1">
+						<view class="item_t1">{{ item.name}}</view>
+						<view class="item_t2">×{{item.length}}</view>
+					</view>
+					<view class="it_row_2">识别号{{ item.identity }}</view>
+					<view class="it_row_3">
+						<view class="del_but" data-id="{{item.id}}" data-index="{{index}}" bindtap="deleteRece">
+							单击删除
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+	<view class="Bottom_navigation_bar">
+		<view class="box_a">
+			<!-- 未选择地址时： -->
+			<view class="emptyAddress">
+				<view class="bnsum">合计：{{goods.length}} 件</view>
+
+				<view class="bnsum">
+					<picker class="picher" bindchange="bindPickerChange" value="{{dompickindex}}" range="{{array}}">
+						<text class="box_text">批量修改：{{afadress}}</text>
+					</picker>
+
+				</view>
+
+				<view class="bnb_r">
+					<view class="r_but r_one" bindtap='continueCargo'>扫码收货</view>
+					<view class="r_but r_two" bindtap='submitGoods'>确认收货</view>
+					<view class="r_but r_two" bindtap='scanDeleteRece'>扫码删除</view>
+				</view>
+
+			</view>
+		</view>
+	</view>
+</view>

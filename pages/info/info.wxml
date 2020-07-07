@@ -1,0 +1,29 @@
+<!--pages/info/info.wxml-->
+<view>
+  <!-- <view class='infoImg'><image src="{{ infoImgURL }}" /></view> -->
+  <view class='infoCont'>
+    <view class='infopanel'>
+      <view>
+        <view class='nameTitle'>{{name}}</view>
+
+      </view>
+      <view class='j-list border-b'>
+        <view class='j-list-lf'>咨询电话：0731-89909359</view>
+        <view class='j-list-rt'><i-icon size='22' type="customerservice_fill" /></view>
+      </view>
+      <view class='j-list'>
+        <view class='j-list-lf'>门店地址：湖南省长沙市岳麓区银盆南路金荣科技园</view>  
+         
+          
+        <view class='j-list-rt'><i-icon size='22' type="coordinates_fill" /></view>
+      </view>
+    </view>
+    <i-panel>
+        <view class='panTitle'><view class='titleName'>简介</view>
+        <view class='titleMore' >开放中<i-icon type="enter" /></view></view>
+        <view class='infoText'>{{intro}}</view>
+    </i-panel>
+    
+   
+  </view>
+</view>

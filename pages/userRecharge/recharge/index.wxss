@@ -1,0 +1,232 @@
+.container-box{background-color: #efeff4;height: 100vh;font-size:30rpx;padding: 8px 15px;}
+.container-tip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0 10px 6px;
+  font-size: 24rpx;
+  background:  #910206;
+  color: #fff;
+}
+.texts {
+  font-size: 28rpx;
+  color: #666;
+}
+.tip-text {
+  display: inline-block;
+  width: 92%;
+  margin-left: 5px;
+  white-space: nowrap; 
+  overflow: hidden;
+  vertical-align: middle;
+}
+.icon {
+  vertical-align: middle;
+}
+.container-card {
+  width: 100%;
+  height: 86px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  margin-top: 40px;
+  background: #fff;
+  color: #333;
+  border-radius: 8px;
+}
+.card-body {
+  margin-top: 16px;
+}
+.card-mon {
+  font-size: 50rpx;
+  color: #BD4044;
+}
+.card-re {
+  display: inline-block;
+  height: 33px;
+  line-height: 33px;
+  font-size: 24rpx;
+}
+.container-body {
+  background: #fff;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  /* padding-bottom: 10px; */
+}
+.page-section {
+  /* height: 20px; */
+  line-height: 20px;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  clear: both;
+}
+.fr {
+  float: right;
+  display: inline-block;
+}
+.weui-input {
+  display: inline-block;
+  width: 55%;
+  height: 20px;
+  text-align: right;
+}
+input {
+  width: 60%;
+  display: inline-block;
+}
+.input-text {
+ margin-left: 5px;
+}
+.picker-view-column {
+  position: relative;
+}
+.pickerBtns {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  z-index: 99;
+}
+.container-sub {
+  position: fixed;
+  left: 0;
+  bottom: 10px;
+  box-sizing: border-box;
+  padding: 0 15px;
+  width: 100%;
+  z-index: 999;
+}
+.handleRechang {
+  font-size: 40rpx!important;
+  color: #fff;
+  /* background: #BD4044; */
+}
+.notice-box {
+  font-size: 28rpx!important;
+}
+.rechangSus {
+  font-size: 32rpx;
+  text-align: center;
+  margin: 25px 0;
+}
+radio .wx-radio-input{
+   height: 0rpx; 
+   width: 0rpx;
+ }
+/* 选中后的 背景样式 */
+radio .wx-radio-input.wx-radio-input-checked{
+   border: none;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked::before{
+   color: transparent;
+}
+.radio-group {
+  font-size: 24rpx;
+}
+.radio {
+  display: inline-block;
+  width: 28%;
+  height: 36px;
+  text-align: center;
+  background: #fff;
+  margin: 5px;
+  margin-bottom: 0;
+  border: 1px solid #ccc;
+}
+.radio-checkerd {
+  background: #BD4044;
+  color: #fff;
+}
+.notice {
+  line-height: 26px;
+}
+.bankAccount {
+  font-size: 26rpx;
+  line-height: 30px;
+}
+.hr {
+  height: 1px;
+  border-bottom: 1px solid #ccc;
+  margin: 5px 0; 
+}
+.pickerview {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  height: 200px;
+  z-index: 22;
+}
+.column {
+  text-align: center;
+}
+.sub-btn {
+  font-size: 32rpx;
+  background-color: #BD4044;
+  width: 100%;
+  color: #fff;
+  border-radius: 8px;
+}
+/* uploader */
+.ui_uploader_cell {
+    width: 100%;
+    padding: 10rpx;
+    box-sizing: border-box;
+    height: 180rpx;
+}
+.ui_uploader_item{
+    float: left;
+    position: relative;
+    margin-right: 30rpx;
+    margin-bottom: 30rpx;
+    width: 165rpx;
+    height: 165rpx;
+}
+.ui_uploader {
+    float: left;
+    position: relative;
+    margin-right: 25rpx;
+    margin-bottom: 25rpx;
+    width: 165rpx;
+    height: 165rpx;
+    border: 2rpx solid #d9d9d9;
+    box-sizing: border-box;
+}
+
+.ui_uploader:before {
+    content: " ";
+    position: absolute;
+    width: 4rpx;
+    height: 79rpx;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #d9d9d9;
+}
+
+.ui_uploader:after {
+    content: " ";
+    position: absolute;
+    height: 4rpx;
+    width: 79rpx;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #d9d9d9;
+}
+.ui_uploader_item_icon{
+    position: absolute;
+    right: -5rpx;
+    top: -5rpx;
+    background: #fff;
+    border-radius: 50%;
+    height: 17px;
+}
+.ui_uploader_item image {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,10 @@
+
+<view class="welcome">欢迎加入祺邦健康！</view>
+
+<view class="shou_quan">请确认授权以下信息</view>
+
+<view class="user_data">获取你的公开信息（昵称、头像等）</view>
+<button  open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="weui-btn" > 微信授权 </button> <!--wx:if="{{!hasUserInfo && canIUse}}"-->		
+<view class="usermotto">
+		<text class="user-motto">{{motto}}</text>
+</view>	

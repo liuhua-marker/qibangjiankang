@@ -1,0 +1,32 @@
+<!--团队管理-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class="panel bg_F8">
+	<!-- <image class='mine_banner' mode="widthFix" src='../../../../../images/bg.png'></image> -->
+	<view class="top_panel ">
+		<view class="input_box flexRow">
+			<input class="input_style" bindinput='bindInput' value="{{name}}" placeholder="累计220名下级,输入名称搜索" placeholder-class="placeholder" bindconfirm="search" confirm-type="search"></input>
+			<image src="../../images/menuPage/search.png" mode="widthFix" class="search_img" bindtap="search"></image>
+		</view>
+	</view>
+	<view class="table_panel">
+		<view class="flexRow flex_top color_333">
+			<view class="flex_table_item">名称</view>
+			<view class="flex_table_item ">加入时间</view>
+			<view class="flex_table_item">签约门店</view>
+			<!-- <view class="flex_table_item">操作</view> -->
+		</view>
+		<!-- 滑到底部加载 -->
+		<scroll-view style="height:calc(100% - 100rpx);" scroll-y bindscrolltolower='bindscrolltolower'>
+		<view class="load_more" wx:if='{{!items||items.length===0}}'>暂无数据</view>
+		<view wx:else >
+			<view class="flexRow flex_top" bindtap="showDialog" wx:for="{{items}}" wx:for-item="item" wx:key="index">
+				<view class="flex_table_item font_14 color_666">{{item.name}}</view>
+				<view class="flex_table_item font_14 color_666">{{item.start_time}}</view>
+				<view class="flex_table_item font_14 color_666">{{item.shop_num}}</view>
+				<!-- <navigator url="../setSubordinate/setSubordinate" class="flex_table_item font_14 color_blue">设置下级</navigator> -->
+			</view>
+			<load-more id="loadMoreView" bindloadMoreListener='loadMoreListener' bindclickLoadMore='clickLoadMore'></load-more>
+			</view>
+		</scroll-view>
+	</view>
+</view>

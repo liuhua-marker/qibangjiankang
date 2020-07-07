@@ -1,0 +1,121 @@
+.container-box {
+  background-color: #F5F5F5;
+  height: 100vh;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.top_text {
+  font-size: 28rpx;
+  color: rgba(85, 85, 85, 1);
+  background: #fff;
+  padding: 20rpx 40rpx;
+  font-weight:500;
+}
+.tips {
+  color: #fa8601f5;
+}
+.conten_panel{
+  padding:0 30rpx;
+}
+.tips_text {
+  color: #333;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  padding:30rpx 0;
+  color:rgba(189, 64, 68, 1);
+}
+.small_sty{
+  width: 30rpx;
+  vertical-align: top;
+  margin-right: 5rpx;
+}
+.conten_box{
+  background: #fff;
+  border-radius: 10rpx;
+  padding:20rpx;
+  margin-bottom: 30rpx;
+  box-shadow:0px 3px 17px 0px rgba(10,2,4,0.1);
+}
+.box {
+  width: 100%;
+  box-sizing: border-box;
+  /* background: #fff; */
+  /* padding: 10px; */
+  color: #2e80fa;
+  line-height: 24px;
+  border-radius: 10px;
+}
+
+.health-title {
+  font-size: 36rpx;
+  line-height: 40px;
+  /* padding-bottom: 8px; */
+  margin-bottom: 8px;
+  color:rgba(189, 64, 68, 1);
+  /* border-bottom: 1px dashed #ccc; */
+}
+.title_sty{
+  font-size: 28rpx;
+  color:rgba(51, 51, 51, 1);
+  line-height: 30rpx;
+  padding:20rpx 0;
+  text-indent: 10rpx;
+}
+.line{
+  width: 40rpx;
+  height: 6rpx;
+  background:linear-gradient(-4deg,rgba(255,108,0,1),rgba(189,64,68,1));
+  border-radius: 6rpx;
+}
+
+.health-body {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.mode-connater {
+  color: rgba(51, 51, 51, 1);
+  /* margin-left: 2em; */
+  font-size: 24rpx;
+  line-height: 20px;
+  padding-bottom: 20rpx;
+  
+}
+.border_b{
+  border-bottom: 1px solid rgba(220, 220, 220, 1);
+}
+.btns {
+  padding:0 30rpx;
+  margin-top: 20px;
+  height: 50px;
+}
+
+.btn {
+  width: auto;
+  height: 70rpx;
+  line-height: 68rpx;
+  border-radius:35px;
+  padding:0 50rpx;
+  font-size: 28rpx;
+}
+.btn[type=primary]{
+  background: linear-gradient(-90deg,rgba(189,64,68,1),rgba(189,64,68,1),rgba(225,73,78,1));
+  box-shadow:0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+
+}
+
+.btn_plain[plain]{
+  border:1px solid rgba(181,181,181,1);
+box-shadow:0px 3rpx 7rpx 0px rgba(0, 0, 0, 0.35);
+color:rgba(50,47,47,1);
+}
+.btn_plain[plain]::after{
+  border:none
+}

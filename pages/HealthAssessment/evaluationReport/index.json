@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "测评报告",
+  "usingComponents": {
+    "mp-icon": "../../../iview/icons/icon"
+  }
+}

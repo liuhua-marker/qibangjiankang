@@ -1,0 +1,15 @@
+<view>
+  <view>
+    <i-cell-group>
+      <view class="money">
+        <view><image src="../../images/yes.png" /><text>挂号成功</text></view>
+        <text>温馨提示！请您提前到您预约的店内排队体检，如有疑问可以咨询店员。</text>
+      </view>
+      <view class='erweimaWrap'>
+       
+      
+      </view>
+    
+    </i-cell-group>
+  </view>
+</view>
